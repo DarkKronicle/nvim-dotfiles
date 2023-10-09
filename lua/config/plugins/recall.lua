@@ -1,6 +1,6 @@
 return {
-    'DarkKronicle/recall.nvim',
-    -- dir = vim.fn.expand('$HOME/programming/lua/recall.nvim/'),
+    -- 'DarkKronicle/recall.nvim',
+    dir = vim.fn.expand('$HOME/programming/lua/recall.nvim/'),
     event = 'VeryLazy',
     -- enabled = false,
     keys = {

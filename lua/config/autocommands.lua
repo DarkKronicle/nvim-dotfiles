@@ -2,6 +2,16 @@ local function augroup(name)
     return vim.api.nvim_create_augroup('darkkronicle_' .. name, {})
 end
 
+-- Latex functions
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+    group = augroup("latex"),
+    pattern = {"*.md", "*.norg"},
+    callback = function()
+        vim.keymap.set('n', 'j', 'gj', { buffer = true })
+        vim.keymap.set('n', 'k', 'gk', { buffer = true })
+    end
+})
+
 
 -- Writing based commands
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {

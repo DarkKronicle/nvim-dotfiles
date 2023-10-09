@@ -4,6 +4,7 @@ vim.g.codium_disable_bindings = true
 
 vim.opt.spell     = true
 vim.opt.spelllang = 'en_us'
+vim.opt.spelloptions:append('camel')
 
 vim.opt.nu             = true
 vim.opt.relativenumber = true
