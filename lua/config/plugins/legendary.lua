@@ -3,7 +3,9 @@ return {
     priority = 10000,
     lazy = false,
     opts = {
-        lazy_nvim = { auto_register = true }
+        extensions = {
+            lazy_nvim = { auto_register = true }
+        }
     },
     keys = {
         {

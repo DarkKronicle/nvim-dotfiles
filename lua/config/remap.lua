@@ -55,6 +55,14 @@ add_key('Save', 'n', '<leader>w', '<CMD>w<CR>')
 add_key('Save', {'n', 'i', 'v'}, '<C-S>', '<CMD>w<CR>')
 add_key('Save and exit', 'n', '<leader>q', '<CMD>wq<CR>')
 
+add_key("Append semicolon to current line if there isn't one", {'n', 'i'}, '<c-;>', function ()
+    local line = vim.api.nvim_get_current_line()
+    if line:sub(-1) ~= ';' then
+        local m = line:match('%s*$')
+        vim.api.nvim_set_current_line(line:sub(-m:len()) .. ';')
+    end
+end)
+
 
 -- Allow misspellings
 vim.cmd.cnoreabbrev('qw', 'wq')

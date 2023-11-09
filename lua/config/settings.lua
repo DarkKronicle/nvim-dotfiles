@@ -53,6 +53,8 @@ vim.opt.sidescrolloff           = 5
 vim.opt.showmode                = false
 vim.opt.cursorline              = true
 
+vim.opt.formatoptions = vim.opt.formatoptions - 'o' + 'r' - '2' - 'j'
+
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 

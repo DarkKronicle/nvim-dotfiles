@@ -80,5 +80,18 @@ return {
         config = function ()
             require('telescope').load_extension('egrepify')
         end
+    },
+    {
+        'nvim-telescope/telescope-frecency.nvim',
+        event = 'VeryLazy',
+        keys = {
+            {
+                '<leader>pr',
+                '<CMD>Telescope frecency<CR>',
+            }
+        },
+        config = function ()
+            require('telescope').load_extension('frecency')
+        end
     }
 }

@@ -19,6 +19,14 @@ return {
         end,
         priority = 1000
     },
+    {
+        'mcchrish/zenbones.nvim',
+        dependencies = {"rktjmp/lush.nvim"},
+        ft = {'norg'},
+        config = function ()
+            vim.cmd('colorscheme rosebones')
+        end
+    },
     {'petertriho/nvim-scrollbar'},
     {'NvChad/nvim-colorizer.lua'},
     {
@@ -36,7 +44,7 @@ return {
         config = function ()
             local rainbow_delimiters = require('rainbow-delimiters')
 
-            require 'rainbow-delimiters.setup' {
+            require 'rainbow-delimiters.setup'.setup({
                 strategy = {
                     [''] = rainbow_delimiters.strategy['global'],
                     commonlisp = rainbow_delimiters.strategy['local'],
@@ -54,7 +62,7 @@ return {
                     'RainbowDelimiterViolet',
                     'RainbowDelimiterCyan',
                 },
-            }
+            })
         end
     },
     {
