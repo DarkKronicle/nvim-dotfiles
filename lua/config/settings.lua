@@ -58,3 +58,8 @@ vim.opt.formatoptions = vim.opt.formatoptions - 'o' + 'r' - '2' - 'j'
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
 package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
 
+
+-- Folding options
+vim.opt.foldcolumn = '1'
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true

@@ -1,12 +1,30 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter', 
-        -- TODO: Resolve this
-        -- There's a big slowdown on the most recent version for me, specifically with rust
-        -- Has to do with #indent() #4839
-        -- commit = '33eb472b459f1d2bf49e16154726743ab3ca1c6d',
-        -- But without the newest version I get an error sometimes :(
-        build = ':TSUpdate'
+        lazy = false,
+        build = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+                ensure_installed = {
+                    'nu',
+                }
+            })
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+            parser_config.nu = {
+                install_info = {
+                    url = "https://github.com/nushell/tree-sitter-nu",
+                    files = { "src/parser.c" },
+                    branch = "main",
+                },
+                filetype = "nu",
+            }
+
+        end
     },
     {
         -- Neovim documentation helper
@@ -38,10 +56,6 @@ return {
                 end
             })
         end
-    },
-    {
-        'LhKipp/nvim-nu',
-        ft = 'nu'
     },
     {
         keys = {
@@ -80,6 +94,7 @@ return {
     },
     {
         'hinell/lsp-timeout.nvim',
+        enabled = false,
         event = 'VeryLazy',
         dependencies = {
             'neovim/nvim-lspconfig'
@@ -94,27 +109,15 @@ return {
         end
     },
     {
-        'kosayoda/nvim-lightbulb',
-        opts = {
-            sign = {
-                enabled = false,
-            },
-            virtual_text = {
-                enabled = true,
-            },
-            auto_cmd = {
-                enabled = true
-            }
-        }
-    },
-    {
-        'weilbith/nvim-code-action-menu',
+        'aznhe21/actions-preview.nvim',
         cmd = 'CodeActionMenu',
         keys = {
             {
                 '<C-CR>',
-                '<CMD>CodeActionMenu<CR>',
-                desc = 'View code actions'
+                desc = 'View code actions',
+                function ()
+                    require("actions-preview").code_actions()
+                end
             }
         }
     },
@@ -128,6 +131,29 @@ return {
                     null_ls.builtins.code_actions.gitsigns,
                     -- null_ls.builtins.code_actions.proselint,
                 }
+            })
+        end
+    },
+    {
+        'smjonas/inc-rename.nvim',
+        keys = {
+            {
+                "<leader>r",
+                ":IncRename ",
+                desc = "Rename"
+            },
+        },
+        config = function()
+            require("inc_rename").setup()
+        end,
+    },
+    {
+        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+        event = 'VeryLazy',
+        config = function ()
+            require("lsp_lines").setup()
+            vim.diagnostic.config({
+                virtual_text = false,
             })
         end
     }

@@ -1,33 +1,11 @@
 return {
     {
-        "catppuccin/nvim",
-        config = function ()
-            require("catppuccin").setup({
-                -- transparent_background = not vim.g.started_by_firenvim,
-                integrations = {
-                    harpoon = true,
-                    hop = true,
-                    noice = true,
-                    notify = true,
-                    neotree = true,
-                    lsp_trouble = true,
-                },
-                kitty = false
-            })
-
-            vim.cmd('colorscheme catppuccin-mocha')
-        end,
-        priority = 1000
-    },
-    {
-        'mcchrish/zenbones.nvim',
-        dependencies = {"rktjmp/lush.nvim"},
-        ft = {'norg'},
-        config = function ()
-            vim.cmd('colorscheme rosebones')
+        'petertriho/nvim-scrollbar',
+        event = "VeryLazy",
+        config = function()
+            require("scrollbar").setup()
         end
     },
-    {'petertriho/nvim-scrollbar'},
     {'NvChad/nvim-colorizer.lua'},
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -35,7 +13,6 @@ return {
         opts = {
             scope = {
                 enabled = true,
-                highlight = "RainbowDelimiterViolet"
             }
         }
     },
@@ -134,10 +111,10 @@ return {
             require("noice").setup({
                 lsp = {
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-                    override = {
                         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                         ["vim.lsp.util.stylize_markdown"] = true,
                         ["cmp.entry.get_documentation"] = true,
+                        override = {
                     },
                     progress = {
                         enabled = false
@@ -148,8 +125,8 @@ return {
                     bottom_search = true,     -- use a classic bottom cmdline for search
                     command_palette = true,   -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = false,       -- enables an input dialog for inc-rename.nvim
                     lsp_doc_border = false,   -- add a border to hover docs and signature help
+                    inc_rename = true,
                 },
                 routes = {
                     {
@@ -270,7 +247,7 @@ return {
         'famiu/bufdelete.nvim',
         keys = {
             {
-                '<leader>bd',
+                'dx',
                 '<cmd>Bdelete<CR>',
                 mode = 'n',
                 desc = 'Close tab',
@@ -285,5 +262,56 @@ return {
                 default_mappings = true,
             })
         end
+    },
+    {
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async',
+        keys = {
+            {
+                'zR',
+                function ()
+                    require('ufo').openAllFolds()
+                end,
+                desc = "Open all folds"
+            },
+            {
+                'zM',
+                function ()
+                    require('ufo').closeAllFolds()
+                end,
+                desc = "Close all folds"
+            },
+        },
+        event = "VeryLazy",
+        options = {
+            provider_selector = function(bufnr, filetype, buftype)
+                return {'treesitter', 'indent'}
+            end
+        },
+        config = function(_, opts)
+            -- This piece in the config right here
+            require("ufo").setup(opts)
+        end
+    },
+    {
+        'luukvbaal/statuscol.nvim',
+        lazy = false,
+        config = function()
+            local builtin = require("statuscol.builtin")
+            require("statuscol").setup({
+                segments = {
+                    { text = { "%s" }, click = "v:lua.ScSa" },
+                    { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
+                    {
+                        text = { " ", builtin.foldfunc, " " },
+                        condition = { builtin.not_empty, true, builtin.not_empty },
+                        click = "v:lua.ScFa"
+                    },
+                }
+            })
+        end
+    },
+    {
+        'kmonad/kmonad-vim',
     }
 }

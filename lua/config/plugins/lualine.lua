@@ -21,7 +21,10 @@ return {
                 -- lualine_y = {'progress'},
                 lualine_z = {'progress', 'location'}
             },
-            extensions = {'neo-tree'}
+            extensions = {'neo-tree'},
+            options = {
+                theme = 'rosebones',
+            }
         })
     end
 }

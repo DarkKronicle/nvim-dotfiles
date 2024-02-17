@@ -2,6 +2,7 @@ return {
     {
         '3rd/image.nvim',
         ft = {'markdown', 'norg'},
+        enabled = not vim.g.started_by_firenvim,
         config = function ()
             require('image').setup({
                 backend = 'kitty',

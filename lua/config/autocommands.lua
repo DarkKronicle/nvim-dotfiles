@@ -1,3 +1,12 @@
+vim.filetype.add({
+    extension = {
+        nu = "nu",
+        nush = "nu",
+        nuon = "nu",
+        nushell = "nu",
+    },
+})
+
 local function augroup(name)
     return vim.api.nvim_create_augroup('darkkronicle_' .. name, {})
 end
@@ -126,6 +135,19 @@ vim.api.nvim_create_autocmd('BufWritePre', {
         if event.file == 'COMMIT_EDITMSG' or event.file == 'MERGE_MSG' then
             vim.opt_local.swapfile = false
         end
+    end,
+})
+
+vim.api.nvim_create_autocmd('TermOpen', {
+    group = augroup('term'),
+    callback = function(_)
+        vim.opt_local.spell = false
+        vim.opt_local.scrolloff = 0
+        vim.opt_local.sidescrolloff = 0
+        vim.opt_local.relativenumber = false
+        vim.opt_local.number = false
+        vim.opt_local.signcolumn = "no"
+        vim.opt_local.statuscolumn = ""
     end,
 })
 

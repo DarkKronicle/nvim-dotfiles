@@ -27,6 +27,8 @@ dashboard.section.buttons.val = {
     dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
     dashboard.button("s", "   Sessions", ":Telescope possession list<CR>"),
     dashboard.button("n", "   Neorg", ":Neorg workspace notes<CR>"),
+    dashboard.button("o", "   Oil", "<CMD>Oil<CR>"),
+
     dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 

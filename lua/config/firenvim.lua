@@ -1,6 +1,13 @@
 local function setup_firenvim()
     vim.opt.shortmess = 'ilnxtToOF'
-    vim.opt.guifont = {"JetBrainsMonoNL Nerd Font", "h10"}
+    vim.opt.guifont = {"Cascursive", "h8"}
+    -- vim.cmd(":SoftPencil<CR>")
+    vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
+        callback = function(e)
+            vim.cmd(":set filetype=markdown<CR>")
+            vim.cmd(":SoftPencil<CR>")
+        end
+    })
     vim.api.nvim_create_autocmd({'TextChanged', 'TextChangedI'}, {
         callback = function(e)
             if vim.g.timer_started == true then

@@ -1,6 +1,7 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
+    enabled = not vim.g.started_by_firenvim,
     dependencies = {
         -- LSP Support
         { 'folke/neodev.nvim' },
@@ -23,6 +24,7 @@ return {
         {'hrsh7th/cmp-nvim-lsp-signature-help'},
         {'saadparwaiz1/cmp_luasnip'},
         {'rafamadriz/friendly-snippets'},
+        {'hrsh7th/cmp-cmdline'}
     },
     config = function ()
         local lsp = require('lsp-zero')
@@ -88,6 +90,21 @@ return {
                 }
             })
         )
+
+        -- https://github.com/ayamir/nvimdots/blob/main/lua/modules/configs/completion/cmp.lua
+        local border = function(hl)
+            return {
+                { "┌", hl },
+                { "─", hl },
+                { "┐", hl },
+                { "│", hl },
+                { "┘", hl },
+                { "─", hl },
+                { "└", hl },
+                { "│", hl },
+            }
+        end
+
         cmp.setup({
             sources = {
                 { name = 'nvim_lsp' },
@@ -130,18 +147,52 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-f>'] = cmp_action.luasnip_jump_forward(),
                 ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-            }, window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
-            },
+            }, 
+            -- window = {
+            --     completion = cmp.config.window.bordered(),
+            --     documentation = cmp.config.window.bordered(),
+            -- },
+            -- window = {
+            --     completion = {
+            --         border = border("PmenuBorder"),
+            --         winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
+            --     },
+            --     documentation = {
+            --         border = border("CmpDocBorder"),
+            --         winhighlight = "Normal:CmpDoc",
+            --     },
+            -- },
+
             formatting = {
                 fields = { 'abbr', 'kind', 'menu' },
                 format = require('lspkind').cmp_format({
-                    mode = 'symbol',       -- show only symbol annotations
+                    mode = 'symbol_text',       -- show only symbol annotations
                     maxwidth = 50,         -- prevent the popup from showing more than provided characters
                     ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
                 })
             }
+        })
+
+        cmp.setup.cmdline('/', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+
+        -- `:` cmdline setup.
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' }
+                    }
+                }
+            })
         })
 
 
@@ -152,9 +203,38 @@ return {
             end
         })
 
+        local lsp_configurations = require('lspconfig.configs')
+        local lspconfig = require('lspconfig')
+        lsp_configurations.nu_ls = {
+            default_config = {
+                cmd = { "nu", "--lsp" },
+                filetypes = { "nu" },
+                root_dir = function(fname)
+                    local git_root = lspconfig.util.find_git_ancestor(fname)
+                    if git_root then
+                        return git_root
+                    else
+                        return vim.fn.fnamemodify(fname, ":p:h")  -- get the parent directory of the file
+                    end
+                end
+            }
+        }
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        lspconfig.nu_ls.setup({ capabilities = capabilities })
+
+        local util = require 'lspconfig.util'
+
+        lspconfig.verible.setup {
+            root_dir = util.root_pattern(".svls.toml", ".git", "*.qsf")
+        }
+
 
         require'lspconfig'.lua_ls.setup {
             on_init = function(client)
+                if client.workspace_folders == nil then
+                    return true
+                end
                 local path = client.workspace_folders[1].name
                 if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
                     client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {

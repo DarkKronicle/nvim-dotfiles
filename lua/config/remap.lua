@@ -5,16 +5,16 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- vim.keymap.set({'n', 'v'}, 'p', "p'[=']", {noremap = true})
-vim.keymap.set({'n'}, 'p', 'o<C-r><C-p>"<esc>\'[', {noremap = true})
-vim.keymap.set({'v'}, 'p', '"_xO<C-r><C-p>"<esc>v\'[', {noremap = true})
-
-vim.keymap.set({'n', 'v'}, 'P', "p", {noremap = true})
+-- vim.keymap.set({'n'}, 'p', 'o<C-r><C-p>"<esc>\'[', {noremap = true})
+-- vim.keymap.set({'v'}, 'p', '"_xO<C-r><C-p>"<esc>v\'[', {noremap = true})
+--
+-- vim.keymap.set({'n', 'v'}, 'P', "p", {noremap = true})
 
 add_key("Move half page down", "n", "<C-d>", "<C-d>zz")
 add_key("Move half page up", "n", "<C-u>", "<C-u>zz")
 
-add_key("Next search item", "n", "n", "nzzzv")
-add_key("Previous search item", "n", "N", "Nzzzv")
+-- add_key("Next search item", "n", "n", "nzzzv")
+-- add_key("Previous search item", "n", "N", "Nzzzv")
 
 add_key("Paste from system", {"n", "v"}, "<leader>yp", "\"+p'[=']")
 
@@ -64,7 +64,7 @@ add_key("Append semicolon to current line if there isn't one", {'n', 'i'}, '<c-;
 end)
 
 
--- Allow misspellings
+
 vim.cmd.cnoreabbrev('qw', 'wq')
 vim.cmd.cnoreabbrev('Wq', 'wq')
 vim.cmd.cnoreabbrev('WQ', 'wq')

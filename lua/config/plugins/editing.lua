@@ -3,6 +3,10 @@ local hop_loaded = false
 
 return {
     {
+        'LunarVim/bigfile.nvim',
+        lazy = false,
+    },
+    {
         'liangxianzhe/nap.nvim',
         lazy = false,
         config = function ()
@@ -55,160 +59,27 @@ return {
         lazy = true
     },
     {
-        'smoka7/hop.nvim',
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {},
+        -- stylua: ignore
         keys = {
-            {
-                's',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_char1({ direction = require('hop.hint').HintDirection.AFTER_CURSOR })
-                end,
-                mode = {'n', 'o'},
-                desc = 'Hop find 1 character forward',
-            },
-            {
-                'S',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_char1({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR })
-                end,
-                mode = {'n', 'o'},
-                desc = 'Hop find 1 character backward',
-            },
-            {
-                ',s',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_char2({ direction = require('hop.hint').HintDirection.AFTER_CURSOR })
-                end,
-                mode = {'n', 'o'},
-                desc = 'Hop find 2 character forward',
-            },
-            {
-                ',S',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_char2({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR })
-                end,
-                mode = {'n', 'o'},
-                desc = 'Hop find 2 character backward',
-            },
-            {
-                ',w',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_camel_case({ direction = require('hop.hint').HintDirection.AFTER_CURSOR })
-                end,
-                mode = {'n', 'o'},
-                desc = 'Hop find word forward',
-            },
-            {
-                ',W',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_camel_case({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR })
-                end,
-                mode = {'n', 'o'},
-                desc = 'Hop find word backward',
-            },
-            {
-                'f',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_char1({ direction = require('hop.hint').HintDirection.AFTER_CURSOR, current_line_only = true})
-                end,
-                mode = {'n', 'o'},
-                desc = 'Override default find',
-            },
-            {
-                'F',
-                function()
-                    if not hop_loaded then
-                        require('hop').setup({})
-                        hop_loaded = true
-                    end
-                    require('hop').hint_char1({ direction = require('hop.hint').HintDirection.BEFORE_CURSOR, current_line_only = true})
-                end,
-                mode = {'n', 'o'},
-                desc = 'Override default find',
-            },
-            opts = {}
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+            { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+            { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+            { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
         },
     },
     {
-        'ThePrimeagen/harpoon',
-        lazy = true,
-        keys = {
-            {
-                '<leader>a',
-                function ()
-                    require('harpoon.mark').add_file()
-                end,
-                mode = 'n',
-                desc = "Harpoon add file",
-            },
-            {
-                '<leader>e',
-                function ()
-                    require('harpoon.ui').toggle_quick_menu()
-                end,
-                mode = 'n',
-                desc = "Harpoon toggle quick menu",
-            },
-            {
-                '<leader>1',
-                function ()
-                    require('harpoon.ui').nav_file(1)
-                end,
-                mode = 'n',
-                desc = "Harpoon entry 1",
-            },
-            {
-                '<leader>2',
-                function ()
-                    require('harpoon.ui').nav_file(2)
-                end,
-                mode = 'n',
-                desc = "Harpoon entry 2",
-            },
-            {
-                '<leader>3',
-                function ()
-                    require('harpoon.ui').nav_file(3)
-                end,
-                mode = 'n',
-                desc = "Harpoon entry 3",
-            },
-            {
-                '<leader>4',
-                function ()
-                    require('harpoon.ui').nav_file(4)
-                end,
-                mode = 'n',
-                desc = "Harpoon entry 4",
-            },
-        },
+        'otavioschwanck/arrow.nvim',
+        event = 'VeryLazy',
+        config = function() 
+            require("arrow").setup({
+                show_icons = true,
+                leader_key = ";",
+            })
+        end
     },
     {
         "windwp/nvim-autopairs",
@@ -283,12 +154,6 @@ return {
                 mode = 'n',
                 desc = 'Surround around current line'
             },
-            -- {
-            --     'ys',
-            --     '<Plug>(nvim-surround-visual)',
-            --     mode = 'v',
-            --     desc = 'Surround visual selection'
-            -- },
             {
                 'ySS',
                 '<Plug>(nvim-surround-normal-line)',
