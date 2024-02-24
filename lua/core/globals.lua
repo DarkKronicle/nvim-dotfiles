@@ -1,12 +1,6 @@
 _G = _G or {}
 
+_G.aelius = {}
 
-local construct_personal = function ()
-    local personal = {}
-
-    return personal
-
-end
-
-_G.personal = _G.personal or construct_personal()
+require("core.aelius")
 

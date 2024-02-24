@@ -77,4 +77,4 @@ function colors.catppuccin_highlight_overrides(cp)
 end
 
 
-return colors
+aelius.colors = colors

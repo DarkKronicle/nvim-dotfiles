@@ -3,7 +3,7 @@ local config = {}
 function config.catppuccin() 
     local catppuccin = require('catppuccin')
     -- Look here for the actual color configurations.
-    local colors = require('core.config.colors')
+    local colors = aelius.colors
     catppuccin.setup({
         -- If `kitty = true`, the colors will be shifted by one value, making
         -- it impossible for the background to be transparent.
@@ -37,6 +37,17 @@ function config.catppuccin()
         }
     })
     vim.cmd('colorscheme catppuccin-mocha')
+
+    vim.fn.sign_define("DiagnosticSignError",
+    {text = " ", texthl = "DiagnosticSignError"})
+    vim.fn.sign_define("DiagnosticSignWarn",
+    {text = " ", texthl = "DiagnosticSignWarn"})
+    vim.fn.sign_define("DiagnosticSignInfo",
+    {text = " ", texthl = "DiagnosticSignInfo"})
+    vim.fn.sign_define("DiagnosticSignHint",
+    {text = "󰌵", texthl = "DiagnosticSignHint"})
+
+
 end
 
 return config

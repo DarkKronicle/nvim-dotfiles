@@ -52,6 +52,7 @@ local load_core = function ()
     add_filetypes()
 
     require("core.options")
+    require("core.commands")
 
     require("core.pack"):boot_strap()
 

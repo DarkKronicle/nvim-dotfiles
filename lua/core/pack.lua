@@ -1,7 +1,6 @@
 -- Credit: https://github.com/vsedov/nvim/blob/master/lua/core/pack.lua
 -- Pretty cool way to handle plugins and everything
 local uv, api, fn = vim.loop, vim.api, vim.fn
-local helper = require("core.helper")
 
 local pack = {}
 pack.__index = pack
@@ -9,7 +8,7 @@ pack.__index = pack
 
 function pack:load_modules_packages()
 
-    local modules_dir = helper.get_config_path() .. "/lua/modules"
+    local modules_dir = aelius.get_config_path() .. "/lua/modules"
     self.repos = {}
 
     local get_plugin_list = function()
@@ -42,8 +41,8 @@ function pack:boot_strap()
     local lazy = require("lazy")
     local opts = {
         -- Put lazy lock in a more central location
-        lockfile = helper.get_data_path() .. "/lazy-lock.json",
-        root = helper.get_lazy_path(),
+        lockfile = aelius.get_data_path() .. "/lazy-lock.json",
+        root = aelius.get_lazy_path(),
     }
     self:load_modules_packages()
     lazy.setup(self.repos, opts)
