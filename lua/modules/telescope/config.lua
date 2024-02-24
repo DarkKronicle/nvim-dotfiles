@@ -59,6 +59,7 @@ function config.telescope()
         }
     })
     telescope.load_extension('fzf')
+    telescope.load_extension('egrepify')
 end
 
 return config

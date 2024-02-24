@@ -1,7 +1,9 @@
 local api = vim.api
 
+aelius.map = vim.keymap.set
 
 function aelius.augroup(name, commands)
+    name = "aelius_" .. name
     local id = api.nvim_create_augroup(name, { clear = true })
     for _, autocmd in ipairs(commands) do
         local is_callback = type(autocmd.command) == "function"
@@ -11,7 +13,7 @@ function aelius.augroup(name, commands)
             desc = autocmd.desc,
             callback = is_callback and autocmd.command or nil,
             command = not is_callback and autocmd.command or nil,
-            once = autocmd.once,
+            once = autocmd.once or false,
             nested = autocmd.nested,
             buffer = autocmd.buffer,
         })

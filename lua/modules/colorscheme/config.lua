@@ -10,7 +10,7 @@ function config.catppuccin()
         -- I want the main panel to be transparent :)
         kitty = false,
         color_overrides = {
-            mocha = colors.catppuccin_override
+            mocha = colors.catppuccin_override()
         },
         -- No reason not to really have these
         integrations = {

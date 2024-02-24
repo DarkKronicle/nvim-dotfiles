@@ -46,7 +46,7 @@ opt.cursorline = true
 opt.relativenumber = true
 opt.termguicolors = true
 opt.mouse = 'a'
--- opt.showmode = false
+opt.showmode = false
 
 -- Apparently allows blinking and other stuff
 opt.guicursor = {
@@ -113,6 +113,8 @@ opt.smartcase = true
 opt.swapfile                = false
 opt.backup                  = false
 opt.undodir                 = vim.fn.expand("$HOME/.vim/undodir")
+opt.undofile = true
+o.confirm = true
 
 --------------------------------------------------------------------------------//
 -- Spelling {{{1
@@ -133,6 +135,13 @@ opt.foldlevel = 999
 o.foldenable = true
 opt.foldmethod = 'marker'
 opt.foldtext = ""
+
+--------------------------------------------------------------------------------//
+-- Grep {{{1
+--------------------------------------------------------------------------------//
+
+vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
+opt.grepformat = opt.grepformat ^ { "%f:%l:%c:%m" }
 
 -- }}}
 
