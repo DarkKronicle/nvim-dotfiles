@@ -3,8 +3,20 @@ return {
         'nvim-treesitter/nvim-treesitter', 
         lazy = false,
         build = ':TSUpdate',
+        dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
         config = function()
             require('nvim-treesitter.configs').setup({
+                textobjects = {
+                    swap = {
+                        enable = true,
+                        swap_next = {
+                            ["<leader>sa"] = "@parameter.inner",
+                        },
+                        swap_previous = {
+                            ["<leader>sA"] = "@parameter.inner",
+                        },
+                    },
+                },
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false,
@@ -39,6 +51,7 @@ return {
     {
         'lewis6991/hover.nvim',
         lazy = true,
+        enabled = false,
         keys = {
             {
                 '<C-k>',
@@ -153,7 +166,11 @@ return {
         config = function ()
             require("lsp_lines").setup()
             vim.diagnostic.config({
-                virtual_text = false,
+                -- virtual_text = false,
+                virtual_lines = { 
+                    only_current_line = true,
+                    highlight_whole_line = false,
+                },
             })
         end
     }

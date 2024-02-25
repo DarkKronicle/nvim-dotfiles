@@ -17,7 +17,6 @@ return {
             local rgb = background.rgb
             local bg_hex = string.format("#%x%x%x", rgb.r, rgb.g, rgb.b)
 
-            print(bg_hex)
             require("catppuccin").setup({
                 kitty = false,
                 color_overrides = {
@@ -56,6 +55,7 @@ return {
                 show_end_of_buffer = false,
                 integrations = {
                     harpoon = true,
+                    aerial = true,
                     flash = true,
                     noice = true,
                     notify = true,

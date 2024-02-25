@@ -77,7 +77,7 @@ return {
         config = function() 
             require("arrow").setup({
                 show_icons = true,
-                leader_key = ";",
+                leader_key = ";j",
             })
         end
     },
@@ -204,6 +204,7 @@ return {
     },
     {
         'hinell/move.nvim',
+        enabled = false,
         keys = {
             {
                 'J',
@@ -230,5 +231,115 @@ return {
                 mode = {'v'}
             },
         }
+    },
+    {
+        'karb94/neoscroll.nvim',
+        config = function()
+
+            require('neoscroll').setup({})
+            local t = {}
+            t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '250'}}
+            t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '250'}}
+            t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+            t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+            t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
+            t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
+            t['zt']    = {'zt', {'250'}}
+            t['zz']    = {'zz', {'250'}}
+            t['zb']    = {'zb', {'250'}}
+
+            require('neoscroll.config').set_mappings(t)
+        end
+
+    },
+    {
+        'drybalka/tree-climber.nvim',
+        keys = {
+            {
+                'J',
+                function ()
+                    require('tree-climber').goto_next()
+                end,
+                mode = { "n" },
+                desc = "Goto next node"
+            },
+            {
+                'K',
+                function ()
+                    require('tree-climber').goto_prev()
+                end,
+                mode = { "n" },
+                desc = "Goto next node"
+            },
+            {
+                'L',
+                function ()
+                    require('tree-climber').goto_child()
+                end,
+                mode = { "n" },
+                desc = "Goto child node"
+            },
+            {
+                'H',
+                function ()
+                    require('tree-climber').goto_parent()
+                end,
+                mode = { "n" },
+                desc = "Goto parent node"
+            },
+        },
+    },
+    {
+        'j-morano/buffer_manager.nvim',
+        keys = {
+            {
+                ';f',
+                function ()
+                    require("buffer_manager.ui").toggle_quick_menu()
+                end,
+                'Open buffer manager'
+            }
+        },
+        config = function ()
+            require('buffer_manager').setup({})
+        end
+    },
+    {
+        'chrisgrieser/nvim-various-textobjs',
+        lazy = false,
+        opts = { useDefaultKeymaps = false },
+    },
+    {
+        'gbprod/yanky.nvim',
+        lazy = false,
+        config = function ()
+            require('yanky').setup({
+                system_clipboard = {
+                    sync_with_ring = true,
+                },
+                highlight = {
+                    on_put = true,
+                    on_yank = true,
+                    timer = 200,
+                },
+            })
+            require('telescope').load_extension('yank_history')
+        end
+    },
+    {
+        'Wansmer/treesj',
+        keys = {
+            {
+                "<leader>m",
+                "<cmd>lua require('treesj').toggle()<cr>",
+                desc = "Toggle join tree",
+            },
+        },
+        config = function ()
+            require('treesj').setup({
+                use_default_keymaps = false,
+            })
+        end
+
     }
 }

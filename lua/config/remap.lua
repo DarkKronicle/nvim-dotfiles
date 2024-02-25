@@ -10,8 +10,8 @@ vim.g.maplocalleader = ","
 --
 -- vim.keymap.set({'n', 'v'}, 'P', "p", {noremap = true})
 
-add_key("Move half page down", "n", "<C-d>", "<C-d>zz")
-add_key("Move half page up", "n", "<C-u>", "<C-u>zz")
+-- add_key("Move half page down", "n", "<C-d>", "<C-d>zz")
+-- add_key("Move half page up", "n", "<C-u>", "<C-u>zz")
 
 -- add_key("Next search item", "n", "n", "nzzzv")
 -- add_key("Previous search item", "n", "N", "Nzzzv")
@@ -63,7 +63,7 @@ add_key("Append semicolon to current line if there isn't one", {'n', 'i'}, '<c-;
     end
 end)
 
-
+add_key('Leave', 'n', '<leader>Q', '<CMD>qall<CR>')
 
 vim.cmd.cnoreabbrev('qw', 'wq')
 vim.cmd.cnoreabbrev('Wq', 'wq')
@@ -71,3 +71,26 @@ vim.cmd.cnoreabbrev('WQ', 'wq')
 vim.cmd.cnoreabbrev('Qa', 'qa')
 vim.cmd.cnoreabbrev('Bd', 'bd')
 vim.cmd.cnoreabbrev('bD', 'bd')
+
+
+
+-- https://github.com/jdhao/nvim-config/blob/master/lua/mappings.lua#L194C1-L199C4
+-- Break inserted text into smaller undo units when we insert some punctuation chars.
+local undo_ch = { ",", ".", "!", "?", ";", ":", "(" }
+for _, ch in ipairs(undo_ch) do
+  vim.keymap.set("i", ch, ch .. "<c-g>u")
+end
+
+add_key("Add semicolon to end of line", {"i", "n"}, "<A-;>", "<Esc>miA;<Esc>`ii")
+
+-- Text objects for URL
+add_key("URL text object", { "x", "o" }, "iu", '<cmd>lua require("various-textobjs").url()<CR>')
+add_key("Last edit object", { "x", "o" }, "ic", '<cmd>lua require("various-textobjs").lastChange()<CR>')
+
+add_key("Paste", {"n","x"}, "p", "<Plug>(YankyPutAfter)")
+add_key("Paste before", {"n","x"}, "P", "<Plug>(YankyPutBefore)")
+add_key("Paste move cursor", {"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+add_key("Paste move cursor before", {"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+
+add_key("Yanky previous entry", "n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+add_key("Yanky next entry", "n", "<c-n>", "<Plug>(YankyNextEntry)")

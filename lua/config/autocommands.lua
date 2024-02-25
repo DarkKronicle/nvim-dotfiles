@@ -82,12 +82,12 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
 })
 
 -- Highlight yanking
-vim.api.nvim_create_autocmd('TextYankPost', {
-    group = augroup('highlight_yank'),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
+-- vim.api.nvim_create_autocmd('TextYankPost', {
+--     group = augroup('highlight_yank'),
+--     callback = function()
+--         vim.highlight.on_yank()
+--     end,
+-- })
 
 -- Make dir if it doesn't exist
 vim.api.nvim_create_autocmd('BufWritePre', {

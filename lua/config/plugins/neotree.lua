@@ -35,7 +35,8 @@ return {
             },
             window = {
                 width = 30
-            }
+            },
+            open_files_do_not_replace_types = { "edgy" },
         },
     },
     {
