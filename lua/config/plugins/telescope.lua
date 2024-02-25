@@ -15,10 +15,24 @@ return {
                 desc = 'Telescope fuzzy find files',
             },
             {
+                '<leader>pb',
+                require('legendary.toolbox').lazy_required_fn('telescope.builtin', 'buffers'),
+                mode = 'n',
+                desc = 'Telescope fuzzy find files',
+            },
+            {
                 '<leader>pp',
                 require('legendary.toolbox').lazy_required_fn('telescope.builtin', 'git_files'),
                 mode = 'n',
                 desc = 'Telescope fuzzy find git files',
+            },
+            {
+                '<leader>ph',
+                function ()
+                    require("telescope").extensions.yank_history.yank_history()
+                end,
+                mode = 'n',
+                desc = 'Browse yank history',
             },
             -- {
             --     '<leader>ps',

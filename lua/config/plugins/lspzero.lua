@@ -24,7 +24,9 @@ return {
         {'hrsh7th/cmp-nvim-lsp-signature-help'},
         {'saadparwaiz1/cmp_luasnip'},
         {'rafamadriz/friendly-snippets'},
-        {'hrsh7th/cmp-cmdline'}
+        {'hrsh7th/cmp-cmdline'},
+        {'ray-x/cmp-treesitter'},
+        {'chrisgrieser/cmp_yanky'},
     },
     config = function ()
         local lsp = require('lsp-zero')
@@ -91,20 +93,6 @@ return {
             })
         )
 
-        -- https://github.com/ayamir/nvimdots/blob/main/lua/modules/configs/completion/cmp.lua
-        local border = function(hl)
-            return {
-                { "┌", hl },
-                { "─", hl },
-                { "┐", hl },
-                { "│", hl },
-                { "┘", hl },
-                { "─", hl },
-                { "└", hl },
-                { "│", hl },
-            }
-        end
-
         cmp.setup({
             sources = {
                 { name = 'nvim_lsp' },
@@ -114,6 +102,8 @@ return {
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'neorg' },
                 { name = 'codeium' },
+                { name = 'cmp_yanky' },
+                { name = 'treesitter' },
             },
             mapping = {
                 ['<Tab>'] = cmp.mapping(function(fallback)

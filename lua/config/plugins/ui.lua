@@ -212,6 +212,7 @@ return {
         'folke/twilight.nvim',
         cmd = {'Twilight', 'TwilightEnable', 'TwilightDisable'},
         opts = {
+            context = 20,
             dimming = {
                 alpha = 0.5
             }
@@ -313,5 +314,5 @@ return {
     },
     {
         'kmonad/kmonad-vim',
-    }
+    },
 }

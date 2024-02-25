@@ -41,5 +41,5 @@ if vim.g.started_by_firenvim then
     vim.opt.laststatus = 0
     setup_firenvim()
 else
-    vim.opt.laststatus = 2
+    -- vim.opt.laststatus = 2
 end

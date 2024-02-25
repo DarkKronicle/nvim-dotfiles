@@ -21,10 +21,18 @@ return {
                 -- lualine_y = {'progress'},
                 lualine_z = {'progress', 'location'}
             },
-            extensions = {'neo-tree'},
+            extensions = {
+                'neo-tree',
+                'aerial',
+                'trouble',
+            },
             options = {
                 theme = 'rosebones',
-            }
+            },
+            disabled_filetypes = {
+                'aerial',
+                'edgy',
+            },
         })
     end
 }
