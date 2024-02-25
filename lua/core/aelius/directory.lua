@@ -2,7 +2,7 @@ local home = os.getenv("HOME")
 
 function aelius.get_config_path()
     -- TODO: move this over
-    return home .. "/.config/nvim_rewrite"
+    return home .. "/.config/nvim"
 end
 
 function aelius.get_data_path()

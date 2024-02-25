@@ -13,6 +13,7 @@ end
 
 local servers = {
     lua_ls = true,
+    texlab = true,
 }
 
 

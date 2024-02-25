@@ -1,3 +1,9 @@
+-- TODO:
+-- cmp sometimes attacks me with about 400 options
+-- nvim-scissors (custom snippets)
+-- snippet keybinds need to be refined, should be able to use defaults
+
+
 local conf = require("modules.completion.config")
 local completion = require("core.pack").package
 
@@ -72,3 +78,5 @@ completion({
         }
     }
 })
+
+

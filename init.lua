@@ -6,5 +6,5 @@ local add_package_path = function (directory)
     package.path = package.path .. ';' .. expanded .. '/?/init.lua'
 end
 
-add_package_path('~/.config/nvim_rewrite/lua')
+-- add_package_path('~/.config/nvim_rewrite/lua')
 require("core")
