@@ -1,7 +1,6 @@
 local M = {}
 
-function M.sources()
-    return {
+function M.sources() return {
         {
             name = 'nvim_lsp',
             priority = 10,
@@ -10,6 +9,7 @@ function M.sources()
         { name = 'buffer' },
         { name = 'path' },
         { name = 'luasnip' },
+        { name = 'codeium' },
     }
 end
 
@@ -51,6 +51,9 @@ function M.cmp()
                 require("luasnip").lsp_expand(args.body)
             end,
         },
+        experimental = {
+            ghost_text = true,
+        }
     })
 
     cmp.setup.cmdline('/', {

@@ -21,6 +21,7 @@ settings({
                         { name = "buffer", group_index = 2 },
                         { name = "emoji", group_index = 2 },
                         { name = "latex_symbols", group_index = 2 },
+                        { name = 'codeium', priority = 1 },
                     },
                 })
             end,

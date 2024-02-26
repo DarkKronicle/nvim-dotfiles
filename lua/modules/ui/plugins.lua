@@ -189,3 +189,8 @@ ui({
 
     }
 })
+
+ui({
+    "stevearc/dressing.nvim",
+    config = true,
+})
