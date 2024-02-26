@@ -11,7 +11,6 @@ main things (from old config):
     posession(?)
     wildfire.nvim
     glance (and better keybinds in general)
-    smart-splits
     true-zen
     - twilight
     vim-easy-align
@@ -25,8 +24,6 @@ potential (and todo) plugins:
     KaitlynEthylia/TreePin
     creativenull/dotfyle-metadata.nvim
     mikesmithgh/kitty-scrollback.nvim -- would be awesome, but using nushell
-    Sam-programs/expand.nvim
-    Aasim-A/scrollEOF.nvim
     Rolv-Apneseth/tfm.nvim
     2KAbhishek/nerdy.nvim
     lukas-reineke/indent-blankline.nvim

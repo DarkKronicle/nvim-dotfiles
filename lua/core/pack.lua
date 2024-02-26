@@ -57,6 +57,17 @@ function pack.package(repo)
     if not pack.repos then
         pack.repos = {}
     end
+    -- I forget to add keys within another table
+    local keys = repo['keys']
+    if keys ~= nil and type(keys) == "table" then
+        for _, value in ipairs(keys) do
+            if type(value) ~= "table" then
+                repo.keys = { keys }
+                break
+            end
+        end
+    end
+
     table.insert(pack.repos, repo)
 end
 

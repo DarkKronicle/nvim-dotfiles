@@ -15,11 +15,7 @@ ui({
         {
             '<leader>t',
             '<cmd>Neotree position=left reveal<cr>',
-        },
-        {
-            '<leader>pt',
-            '<cmd>Neotree position=float reveal<cr>',
-        },
+        }
     }
 })
 
@@ -199,4 +195,20 @@ ui({
     "mrjones2014/smart-splits.nvim",
     keys = conf.smartsplits_keys,
     config = true,
+})
+
+ui({
+    'rolv-apneseth/tfm.nvim',
+    lazy = false,
+    keys = {
+        "<leader>pt",
+        function ()
+            local tfm = require('tfm')
+            tfm.open(nil, tfm.OPEN_MODE.vsplit)
+        end,
+        desc = "yazi floating",
+    },
+    opts = {
+        file_manager = "yazi",
+    }
 })
