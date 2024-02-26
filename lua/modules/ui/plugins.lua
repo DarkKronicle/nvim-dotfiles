@@ -194,3 +194,9 @@ ui({
     "stevearc/dressing.nvim",
     config = true,
 })
+
+ui({
+    "mrjones2014/smart-splits.nvim",
+    keys = conf.smartsplits_keys,
+    config = true,
+})
