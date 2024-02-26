@@ -47,7 +47,9 @@ lsp({
                 if config then
                     require("lspconfig")[name].setup(config)
                 else
-                    print("LSP " .. name .. " is not set up!")
+                    vim.defer_fn(function ()
+                        aelius.warn("LSP " .. name .. " is not set up!")
+                    end, 200)
                 end
             end,
         },

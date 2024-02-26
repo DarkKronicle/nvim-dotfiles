@@ -10,12 +10,20 @@ local function attach_capabilities(config)
     return attach_config
 end
 
+local util = require ('lspconfig.util')
 
 local servers = {
     lua_ls = true,
     texlab = true,
+    svls = true,
+    verible = {
+        root_dir = util.root_pattern(
+            '.svlsconfig', '.svlsconfig.json', 'svls.toml', 'svls.yaml',
+            'svls.yaml', 'svls.yaml', '*.qsf', '.git', '.svls.toml'
+        )
+    },
+    svlangserver = true,
 }
-
 
 return function(name)
     local config = servers[name]
@@ -23,14 +31,14 @@ return function(name)
         return
     end
     local t = type(config)
-    if t == "boolean" then 
+    if t == "boolean" then
         if t then
             config = {}
         else
             return
         end
     end
-    if t == "function" then 
+    if t == "function" then
         config = config()
     end
     return attach_capabilities(config)
