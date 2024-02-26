@@ -102,3 +102,90 @@ ui({
     end
 })
 
+
+ui({
+    'chentoast/marks.nvim',
+    opts = {
+        default_mappings = true,
+    },
+})
+
+ui({
+    'tzachar/highlight-undo.nvim',
+    opts = {},
+})
+
+ui({
+    'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
+})
+
+ui({
+    "lewis6991/gitsigns.nvim",
+    event = 'VeryLazy',
+    opts = {
+        signs = {
+            -- TODO: I have no idea which one's I prefer
+            -- add          = { text = '│' },
+            -- change       = { text = '│' },
+            -- delete       = { text = '_' },
+            -- topdelete    = { text = '‾' },
+            -- changedelete = { text = '~' },
+            -- untracked    = { text = '┆' },
+            add          = { text = '+' },
+            change       = { text = '+' },
+            delete       = { text = '-' },
+            topdelete    = { text = '-' },
+            changedelete = { text = '~' },
+            untracked    = { text = ':' },
+        },
+    },
+})
+
+ui({
+    -- TODO: Probably should disable this on large buffers
+    "RRethy/vim-illuminate",
+    event = 'VeryLazy',
+    config = function (_, opts)
+        require('illuminate').configure(opts)
+    end,
+    opts = {
+        providers = {
+            'lsp',
+            'treesitter',
+            'regex',
+        }
+    }
+
+})
+
+ui({
+    -- TODO: Probably should disable this on large buffers
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = 'VeryLazy',
+    opts = {
+        providers = {
+            'lsp',
+            'treesitter',
+            'regex',
+        }
+    }
+})
+
+ui({
+    "kevinhwang91/nvim-hlslens",
+    event = "VeryLazy",
+    opts = {},
+})
+
+ui({
+    -- TODO: what to do about this?
+    "mvllow/modes.nvim",
+    cond = false,
+    init = function ()
+        vim.o.cursorline = true
+    end,
+    opts = {
+
+    }
+})

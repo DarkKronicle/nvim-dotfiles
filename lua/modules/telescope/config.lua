@@ -60,6 +60,7 @@ function config.telescope()
     })
     telescope.load_extension('fzf')
     telescope.load_extension('egrepify')
+    telescope.load_extension('yank_history')
 end
 
 return config

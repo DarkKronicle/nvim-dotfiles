@@ -37,7 +37,15 @@ ts({
             function ()
                 require('telescope.builtin').spell_suggest(require('telescope.themes').get_cursor({}))
             end,
-            desc = 'egrepify',
+            desc = 'Spell suggest menu',
+            mode = 'n'
+        },
+        {
+            '<leader>py',
+            function ()
+                require('telescope').extensions.yank_history.yank_history()
+            end,
+            desc = 'Yank history',
             mode = 'n'
         },
         {

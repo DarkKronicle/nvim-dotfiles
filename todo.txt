@@ -1,23 +1,14 @@
 main things (from old config):
-    neorg
-    - nabla
-    - image.nvim
-    - vim-pencil
-    cutlass
-    - q for cut
+    nabla
+    image.nvim
+    vim-pencil
     edgy
     dressing
-    gitsigns (sidebar)
-    highlight-undo
     lspkind
-    marks.nvim
     dap
-    nvim-spider(?)
     nvim-surround
     nvim-various-textobjs
     posession(?)
-    rainbow-deliminators
-    undo-tree -- maybe there's a better one?
     wildfire.nvim
     glance (and better keybinds in general)
     smart-splits
@@ -25,9 +16,6 @@ main things (from old config):
     - twilight
     vim-easy-align
     flash
-    yanky
-    
-
     heirline neotree needs to have a topper
 
 
@@ -41,13 +29,9 @@ potential (and todo) plugins:
     Aasim-A/scrollEOF.nvim
     Rolv-Apneseth/tfm.nvim
     2KAbhishek/nerdy.nvim
-    RRethy/vim-illuminate -- any better ones?
     lukas-reineke/indent-blankline.nvim
     kevinhwang91/nvim-ufo
     jghauser/fold-cycle.nvim
-    kevinhwang91/nvim-hlslens
-    mvllow/modes.nvim -- replace my aucmd
-    rainbowhxch/accelerated-jk.nvim
     gbprod/stay-in-place.nvim
     aaron-p1/virt-notes.nvim
 

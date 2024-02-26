@@ -113,6 +113,3 @@ aelius.augroup("cursorline", {
         end,
     },
 })
-
-
-

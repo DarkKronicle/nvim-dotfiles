@@ -4,8 +4,8 @@ local writing = require("core.pack").package
 
 writing({
     "nvim-neorg/neorg",
-    -- ft = { "norg" },
-    -- cmd = { "Neorg" },
+    ft = { "norg" },
+    cmd = { "Neorg" },
     dependencies = {
         -- "3rd/image.nvim",
         {
@@ -23,4 +23,5 @@ writing({
     opts = require("modules.writing.neorg.config").opts,
     config = require("modules.writing.neorg.config").config,
 })
+
 

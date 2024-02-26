@@ -33,7 +33,7 @@ local set_leader = function ()
     vim.g.maplocalleader = ","
 end
 
-local use_loader = function () 
+local use_loader = function ()
 
     if vim.loader then
         vim.loader.enable()

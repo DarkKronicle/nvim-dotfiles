@@ -47,6 +47,11 @@ map('n', '<esc>', function ()
     require('notify').dismiss()
 end, { desc = 'Dismiss highlights and notifications' } )
 
+map({ 'n', 'v' }, '<leader>w', "<cmd>w<cr>")
+map({ 'n', 'v' }, '<leader>W', "<cmd>wa<cr>")
+map({ 'n', 'v' }, '<leader>q', "<cmd>q<cr>")
+map({ 'n', 'v' }, '<leader>Q', "<cmd>qa<cr>")
+
 
 vim.cmd.cnoreabbrev('qw', 'wq')
 vim.cmd.cnoreabbrev('aw', 'wa')
