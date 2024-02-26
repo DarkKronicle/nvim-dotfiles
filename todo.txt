@@ -1,5 +1,4 @@
 main things (from old config):
-    latex 
     neorg
     - nabla
     - image.nvim
@@ -50,4 +49,5 @@ potential (and todo) plugins:
     mvllow/modes.nvim -- replace my aucmd
     rainbowhxch/accelerated-jk.nvim
     gbprod/stay-in-place.nvim
+    aaron-p1/virt-notes.nvim
 

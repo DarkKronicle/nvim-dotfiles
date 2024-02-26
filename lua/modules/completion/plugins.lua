@@ -15,8 +15,10 @@ completion({
         { "hrsh7th/cmp-nvim-lsp-signature-help" },
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/cmp-path" },
+        { "hrsh7th/cmp-emoji" },
         { "hrsh7th/cmp-cmdline" },
         { "saadparwaiz1/cmp_luasnip", lazy = true },
+        { "kdheepak/cmp-latex-symbols", lazy = true },
         {
             "doxnit/cmp-luasnip-choice",
             config = function()

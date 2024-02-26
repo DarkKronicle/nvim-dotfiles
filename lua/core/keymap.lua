@@ -30,8 +30,8 @@ map_pair("d",
     vim.diagnostic.goto_next, { desc = "Next diagnostic" }
 )
 
-map("n", "<leader>yp", '"+p', { desc = "Paste from system" })
-map("n", "<leader>yy", '"+p', { desc = "Copy to system" })
+map({ "n", "v" }, "<leader>yp", '"+p', { desc = "Paste from system" })
+map({ "n", "v" }, "<leader>yy", '"+y', { desc = "Copy to system" })
 
 
 -- Re-select blocks after indenting in visual/select mode
