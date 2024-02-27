@@ -22,9 +22,7 @@ potential (and todo) plugins:
 
     cbochs/portal.nvim -- umm, yes
     KaitlynEthylia/TreePin
-    creativenull/dotfyle-metadata.nvim
     mikesmithgh/kitty-scrollback.nvim -- would be awesome, but using nushell
-    Rolv-Apneseth/tfm.nvim
     2KAbhishek/nerdy.nvim
     lukas-reineke/indent-blankline.nvim
     kevinhwang91/nvim-ufo

@@ -99,3 +99,49 @@ editor({
     event = { 'CursorMoved', 'WinScrolled' },
     opts = {},
 })
+
+editor({
+    "KaitlynEthylia/TreePin",
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    keys = {
+        -- TODO: Hydra
+        {
+            "<leader>cp",
+            function ()
+                require('treepin').pinLocal()
+            end,
+            desc = 'Pin local'
+        },
+        {
+            "<leader>cr",
+            function ()
+                require('treepin').pinRoot()
+            end,
+            desc = 'Pin root'
+        },
+        {
+            "<leader>cx",
+            function ()
+                require('treepin').pinClear()
+            end,
+            desc = 'Pin clear'
+        },
+        {
+            "<leader>c]",
+            function ()
+                require('treepin').pinGrow()
+            end,
+            desc = 'Pin grow'
+        },
+        {
+            "<leader>c[",
+            function ()
+                require('treepin').pinShrink()
+            end,
+            desc = 'Pin shrink'
+        },
+    },
+    opts = {
+        separator = "─"
+    }
+})
