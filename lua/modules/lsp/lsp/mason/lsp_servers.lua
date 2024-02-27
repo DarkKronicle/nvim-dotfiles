@@ -3,6 +3,7 @@ local function attach_capabilities(config)
     local caps = vim.lsp.protocol.make_client_capabilities()
     caps = cmp_nvim_lsp.default_capabilities(caps)
     caps.textDocument.completion.completionItem.snippetSupport = true
+    caps.textDocument.foldingRange = { dynamicRegistration = false, rangeLimit = 1000, lineFoldingOnly = true }
     attach_config = {
         capabilities = caps
     }

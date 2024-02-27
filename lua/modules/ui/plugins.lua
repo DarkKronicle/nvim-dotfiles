@@ -212,3 +212,11 @@ ui({
         file_manager = "yazi",
     }
 })
+
+-- Defaults look quite nice (pretty sure I use catppuccin to modify it slightly too)
+ui({
+    'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
+    opts = {}
+})
+

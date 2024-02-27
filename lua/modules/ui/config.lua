@@ -41,7 +41,7 @@ function config.heirline()
             end,
         },
         tabline = heirline_modules.tabline(), -- UI upper bar
-        -- statuscolumn = heirline_modules.statuscolumn(),
+        statuscolumn = heirline_modules.statuscolumn(),
         statusline = heirline_modules.statusline(),
         -- winbar = heirline_modules.winbar(),
     })

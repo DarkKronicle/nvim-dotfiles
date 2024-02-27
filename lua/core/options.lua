@@ -133,7 +133,7 @@ o.foldlevelstart = 999
 opt.foldlevel = 999
 
 o.foldenable = true
-opt.foldmethod = 'marker'
+-- opt.foldmethod = 'marker'
 opt.foldtext = ""
 
 --------------------------------------------------------------------------------//

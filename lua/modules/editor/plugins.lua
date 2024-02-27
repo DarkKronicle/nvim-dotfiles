@@ -145,3 +145,62 @@ editor({
         separator = "─"
     }
 })
+
+-- Woah this is awesome
+editor({
+    'jghauser/fold-cycle.nvim',
+    opts = {},
+    keys = {
+        {
+            '<Tab>',
+            function ()
+                require('fold-cycle').open()
+            end,
+            mode = 'n',
+        },
+        {
+            '<S-Tab>',
+            function ()
+                require('fold-cycle').close()
+            end,
+            mode = 'n',
+        },
+    }
+})
+
+editor({
+    'kevinhwang91/nvim-ufo',
+    lazy = false,
+    dependencies = 'kevinhwang91/promise-async',
+    -- https://github.com/vsedov/nvim/blob/5c72b68d7fbcb8b047060d7f0f417bdd533b5f54/lua/modules/ui/config.lua
+    opts = {
+        open_fold_hl_timeout = 0,
+        preview = { win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" } },
+        enable_get_fold_virt_text = true,
+        close_fold_kinds = { "imports" }, -- + comments?
+        fold_virt_text_handler = function(text, lnum, endLnum, width)
+            local suffix = "  "
+            local lines  = ('[%d lines] '):format(endLnum - lnum)
+
+            local cur_width = 0
+            for _, section in ipairs(text) do
+                cur_width = cur_width + vim.fn.strdisplaywidth(section[1])
+            end
+
+            suffix = suffix .. (' '):rep(width - cur_width - vim.fn.strdisplaywidth(lines) - 3)
+
+            -- TODO: Change these colors
+            table.insert(text, { suffix, 'Comment' })
+            table.insert(text, { lines, 'Comment' })
+            return text
+        end,
+    },
+    config = function (_, opts)
+        vim.o.foldcolumn = '1' -- '0' is not bad
+        vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+        vim.o.foldlevelstart = 99
+        vim.o.foldenable = true
+        vim.opt.foldmethod = 'manual'
+        require('ufo').setup(opts)
+    end
+})

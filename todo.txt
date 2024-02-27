@@ -21,9 +21,7 @@ main things (from old config):
 potential (and todo) plugins:
 
     cbochs/portal.nvim -- umm, yes
-    KaitlynEthylia/TreePin
     mikesmithgh/kitty-scrollback.nvim -- would be awesome, but using nushell
-    2KAbhishek/nerdy.nvim
     lukas-reineke/indent-blankline.nvim
     kevinhwang91/nvim-ufo
     jghauser/fold-cycle.nvim

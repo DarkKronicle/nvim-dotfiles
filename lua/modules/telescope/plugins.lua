@@ -66,3 +66,13 @@ ts({
     },
 })
 
+-- Can also do :Telescope nerdy or require('telescope').extensions.nerdy.nerdy() after require('telescope').load_extension('nerdy')
+-- But dressing makes it look nice just within Nerdy
+ts({
+    '2kabhishek/nerdy.nvim',
+    dependencies = {
+        'stevearc/dressing.nvim',
+        'nvim-telescope/telescope.nvim',
+    },
+    cmd = 'Nerdy',
+})
