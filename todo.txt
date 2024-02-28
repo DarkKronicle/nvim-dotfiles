@@ -1,7 +1,6 @@
 main things (from old config):
     nabla
     image.nvim
-    vim-pencil
     edgy
     lspkind
     dap
@@ -10,8 +9,6 @@ main things (from old config):
     posession(?)
     wildfire.nvim
     glance (and better keybinds in general)
-    true-zen
-    - twilight
     vim-easy-align
     heirline neotree needs to have a topper
 

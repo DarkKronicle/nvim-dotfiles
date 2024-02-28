@@ -107,3 +107,8 @@ function aelius.filetype_settings(map)
     aelius.augroup("filetype-settings", { unpack(commands:totable()) })
 end
 
+function aelius.add_package_path(directory)
+    local expanded = vim.fn.expand(directory)
+    package.path = package.path .. ';' .. expanded .. '/?.lua'
+    package.path = package.path .. ';' .. expanded .. '/?/init.lua'
+end

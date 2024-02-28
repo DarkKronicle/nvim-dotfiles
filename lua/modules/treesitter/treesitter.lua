@@ -8,6 +8,9 @@ function ts.treesitter ()
         highlight = {
             enable = true,
         },
+        indent = {
+            enable = true
+        },
     })
 
 end

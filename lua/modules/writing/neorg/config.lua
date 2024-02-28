@@ -3,6 +3,7 @@ local M = {}
 M.opts = {
     load = {
         ["core.defaults"] = {}, -- Load all the default modules
+        ["core.integrations.telescope"] = {},
         ["core.completion"] = {
             config = {
                 engine = "nvim-cmp",
@@ -10,9 +11,6 @@ M.opts = {
         },
         --     ["core.latex.renderer"] = {},
         --     ["core.integrations.image"] = {},
-        --     core.integrations.image
-        --
-        -- ["core.looking-glass"] = {}, -- Enable the looking_glass module
         ["core.itero"] = {},
         ["core.export"] = {},
         ["core.export.markdown"] = {

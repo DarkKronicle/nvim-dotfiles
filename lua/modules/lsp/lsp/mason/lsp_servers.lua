@@ -13,6 +13,7 @@ end
 
 local util = require ('lspconfig.util')
 
+-- Do *NOT* set up rust here, rustaceanvim will do that
 local servers = {
     lua_ls = true,
     texlab = true,

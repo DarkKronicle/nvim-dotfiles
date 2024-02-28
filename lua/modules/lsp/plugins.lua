@@ -56,3 +56,15 @@ lsp({
     },
 })
 
+-- TODO: set up keybinds and stuff for this. This will be in after/ftplugin/rust.lua
+lsp({
+    "mrcjkb/rustaceanvim",
+    ft = { 'rust' },
+})
+
+lsp({
+    'DNLHC/glance.nvim',
+    cmd = 'Glance',
+    keys = conf.glance_keys,
+    config = conf.glance,
+})

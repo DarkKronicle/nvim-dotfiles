@@ -106,4 +106,51 @@ config.smartsplits_keys = {
     },
 }
 
+function config.animate()
+    local animate = require('mini.animate')
+    -- http://www.lazyvim.org/extras/ui/mini-animate
+    local mouse_scrolled = false
+    for _, scroll in ipairs({ "Up", "Down" }) do
+        local key = "<ScrollWheel" .. scroll .. ">"
+        vim.keymap.set({ "", "i" }, key, function()
+            mouse_scrolled = true
+            return key
+        end, { expr = true })
+    end
+
+
+    animate.setup({
+        cursor = {
+            enable = true,
+            timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+            path = animate.gen_path.line({
+                predicate = function(destination)
+                    -- Destination is a tuple of Δx, Δy
+                    return destination[1] < -7 or 7 < destination[1]
+                end
+            }),
+        },
+        open = {
+            enable = false,
+        },
+        close = {
+            enable = false,
+        },
+        scroll = {
+            timing = animate.gen_timing.linear({ duration = 200, unit = "total" }),
+            subscroll = animate.gen_subscroll.equal({
+                predicate = function(total_scroll)
+                    if mouse_scrolled then
+                        mouse_scrolled = false
+                        return false
+                    end
+                    -- TODO: make this scrolloff dependent
+                    -- return total_scroll > vim.opt.scrolloff and total_scroll > 3
+                    return total_scroll > 8
+                end,
+            })
+        }
+    })
+end
+
 return config

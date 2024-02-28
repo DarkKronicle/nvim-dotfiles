@@ -46,6 +46,7 @@ opt.cursorline = true
 opt.relativenumber = true
 opt.termguicolors = true
 opt.mouse = 'a'
+opt.mousescroll = 'ver:15'
 opt.showmode = false
 
 -- Apparently allows blinking and other stuff

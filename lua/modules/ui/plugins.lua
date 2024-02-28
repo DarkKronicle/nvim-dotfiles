@@ -7,8 +7,7 @@ ui({
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
-        -- TODO: Lets get this going
-        -- "3rd/image.nvim", 
+        "3rd/image.nvim",
     },
     config = conf.neotree,
     keys = {
@@ -220,3 +219,27 @@ ui({
     opts = {}
 })
 
+
+ui({
+    'folke/zen-mode.nvim',
+    cmd = 'ZenMode',
+    opts = {
+        window = {
+            backdrop = 0.6,
+        },
+
+    }
+})
+
+ui({
+    'folke/twilight.nvim',
+    cmd = 'Twilight',
+    opts = {
+        context = 20,
+    }
+})
+
+ui({
+    'echasnovski/mini.animate',
+    config = conf.animate,
+})

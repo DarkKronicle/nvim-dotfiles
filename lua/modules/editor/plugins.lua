@@ -4,8 +4,8 @@ local editor = require("core.pack").package
 
 editor({
     'gbprod/cutlass.nvim',
-    event = 'VeryLazy',
-    config = true,
+    lazy = false,
+    opts = {},
     keys = {
         {
             'q',
