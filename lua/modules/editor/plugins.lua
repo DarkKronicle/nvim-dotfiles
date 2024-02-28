@@ -204,3 +204,20 @@ editor({
         require('ufo').setup(opts)
     end
 })
+
+editor({
+    'Wansmer/treesj',
+    keys = {
+        {
+            "<leader>m",
+            "<cmd>lua require('treesj').toggle()<cr>",
+            desc = "Toggle join tree",
+        },
+    },
+    config = function ()
+        require('treesj').setup({
+            use_default_keymaps = false,
+        })
+    end
+
+})

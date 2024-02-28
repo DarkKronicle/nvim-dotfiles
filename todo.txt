@@ -3,7 +3,6 @@ main things (from old config):
     image.nvim
     vim-pencil
     edgy
-    dressing
     lspkind
     dap
     nvim-surround
@@ -14,7 +13,6 @@ main things (from old config):
     true-zen
     - twilight
     vim-easy-align
-    flash
     heirline neotree needs to have a topper
 
 
@@ -22,9 +20,6 @@ potential (and todo) plugins:
 
     cbochs/portal.nvim -- umm, yes
     mikesmithgh/kitty-scrollback.nvim -- would be awesome, but using nushell
-    lukas-reineke/indent-blankline.nvim
-    kevinhwang91/nvim-ufo
-    jghauser/fold-cycle.nvim
-    gbprod/stay-in-place.nvim
+    gbprod/stay-in-place.nvim -- I'll have to set all my keybinds to make sure this works...
     aaron-p1/virt-notes.nvim
 
