@@ -39,8 +39,8 @@ map({ "n", "v" }, "<leader>yy", '"+y', { desc = "Copy to system" })
 map('v', '<', '<gv', { desc = 'Indent right and re-select' })
 map('v', '>', '>gv|', { desc = 'Indent left and re-select' })
 
-map('v', '<Tab>', '<gv', { desc = 'Indent right and re-select' })
-map('v', '<S-Tab>', '>gv|', { desc = 'Indent left and re-select' })
+map('v', '<S-Tab>', '<gv', { desc = 'Indent right and re-select' })
+map('v', '<Tab>', '>gv|', { desc = 'Indent left and re-select' })
 
 map('n', '<esc>', function ()
     vim.cmd('nohl')

@@ -1,22 +1,17 @@
 main things (from old config):
     nabla
-    image.nvim
     edgy
     lspkind
     dap
     nvim-surround
     nvim-various-textobjs
     posession(?)
-    wildfire.nvim
-    glance (and better keybinds in general)
     vim-easy-align
     heirline neotree needs to have a topper
-
 
 potential (and todo) plugins:
 
     cbochs/portal.nvim -- umm, yes
     mikesmithgh/kitty-scrollback.nvim -- would be awesome, but using nushell
-    gbprod/stay-in-place.nvim -- I'll have to set all my keybinds to make sure this works...
     aaron-p1/virt-notes.nvim
 

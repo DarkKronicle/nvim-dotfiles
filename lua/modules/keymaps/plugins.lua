@@ -1,4 +1,5 @@
 local keymaps = require('core.pack').package
+local conf = require('modules.keymaps.config')
 
 
 keymaps({
@@ -11,4 +12,10 @@ keymaps({
     opts = {
 
     }
+})
+
+-- Hydra
+keymaps({
+    'nvimtools/hydra.nvim',
+    config = conf.hydra
 })

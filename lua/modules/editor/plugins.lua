@@ -176,8 +176,8 @@ editor({
     opts = {
         open_fold_hl_timeout = 0,
         preview = { win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" } },
-        enable_get_fold_virt_text = true,
         close_fold_kinds = { "imports" }, -- + comments?
+        enable_get_fold_virt_text = true,
         fold_virt_text_handler = function(text, lnum, endLnum, width)
             local suffix = "  "
             local lines  = ('[%d lines] '):format(endLnum - lnum)
@@ -202,6 +202,16 @@ editor({
         vim.o.foldenable = true
         vim.opt.foldmethod = 'manual'
         require('ufo').setup(opts)
+        -- Make some actual nice looking colors
+        -- TODO: Folded fg is Comment. should figure out how to link it
+        vim.api.nvim_set_hl(0, 'UfoFoldedFg', {
+            fg = 'NONE',
+        })
+        vim.api.nvim_set_hl(0, 'Folded', {
+            bg = 'NONE',
+            fg = '#63677f',
+            italic = true,
+        })
     end
 })
 
@@ -220,4 +230,22 @@ editor({
         })
     end
 
+})
+
+editor({
+    'echasnovski/mini.surround',
+    opts = {
+        mappings = {
+            -- Keymappings are a hydra!
+            add = '',
+            delete = '',
+            find = '',
+            find_left = '',
+            highlight = '',
+            replace = '',
+            update_n_lines = '',
+            suffix_last = '',
+            suffix_next = '',
+        },
+    }
 })

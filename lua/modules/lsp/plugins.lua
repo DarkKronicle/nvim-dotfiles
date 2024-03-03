@@ -68,3 +68,16 @@ lsp({
     keys = conf.glance_keys,
     config = conf.glance,
 })
+
+lsp({
+    'smjonas/inc-rename.nvim',
+    config = function (_, opts)
+        require('inc_rename').setup(opts)
+    end,
+    cmd = 'IncRename',
+    keys = {
+        '<leader>r',
+        ':IncRename ',
+        desc = 'Rename',
+    },
+})
