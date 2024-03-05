@@ -179,15 +179,21 @@ editor({
         close_fold_kinds = { "imports" }, -- + comments?
         enable_get_fold_virt_text = true,
         fold_virt_text_handler = function(text, lnum, endLnum, width)
-            local suffix = "  "
+            -- local suffix = "  "
             local lines  = ('[%d lines] '):format(endLnum - lnum)
 
             local cur_width = 0
             for _, section in ipairs(text) do
                 cur_width = cur_width + vim.fn.strdisplaywidth(section[1])
+                section[2] = 'Comment'
             end
 
-            suffix = suffix .. (' '):rep(width - cur_width - vim.fn.strdisplaywidth(lines) - 3)
+            -- local prepend = '+-- '
+            local sep_char = ' '
+            -- local sep_char = '─'
+            -- local suffix = (sep_char):rep(width - cur_width - vim.fn.strdisplaywidth(lines) - string.len(prepend))
+            -- table.insert(text, 1, { prepend, 'Comment' })
+            local suffix = (sep_char):rep(width - cur_width - vim.fn.strdisplaywidth(lines))
 
             -- TODO: Change these colors
             table.insert(text, { suffix, 'Comment' })
