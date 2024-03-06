@@ -2,7 +2,11 @@ local conf = require("modules.telescope.config")
 local ts = require("core.pack").package
 
 -- Use telescope specific fzf
-ts({ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' })
+ts({
+    'nvim-telescope/telescope-fzf-native.nvim', 
+    build = 'make',
+    lazy = false,
+})
 
 ts({
     'nvim-telescope/telescope.nvim',
