@@ -43,6 +43,7 @@ writing({
 
 writing({
     '3rd/image.nvim',
+    cond = false,
     ft = { 'markdown', 'norg' },
     opts = {
         backend = 'kitty',

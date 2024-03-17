@@ -40,6 +40,10 @@ function pack:boot_strap()
     vim.opt.runtimepath:prepend(lazy_path)
     local lazy = require("lazy")
     local opts = {
+        performance = { 
+            -- Lazy moment
+            reset_packpath = false,
+        },
         -- Put lazy lock in a more central location
         lockfile = aelius.get_data_path() .. "/lazy-lock.json",
         root = aelius.get_lazy_path(),

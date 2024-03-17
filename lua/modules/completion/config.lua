@@ -42,6 +42,8 @@ function M.mappings()
 end
 
 function M.cmp()
+    local codeium = require('codeium')
+    codeium.setup()
     local cmp = require('cmp')
     cmp.setup({
         sources = M.sources(),

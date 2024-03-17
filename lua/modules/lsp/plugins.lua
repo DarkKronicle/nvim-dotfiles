@@ -5,7 +5,11 @@ local lsp = require("core.pack").package
 -- The 3 most important LSP plugins
 lsp({
     "neovim/nvim-lspconfig",
-    lazy = true,
+    lazy = false,
+    config = function()
+        local lspconf = require("modules.lsp.lsp.mason.lsp_servers")
+        lspconf()
+    end,
     dependencies = {
         {
             "folke/neodev.nvim",
@@ -24,6 +28,8 @@ lsp({
     "williamboman/mason.nvim",
     cmd = "Mason",
     build = ":MasonUpdate",
+    -- Handled by nix now
+    enabled = false,
     opts = {
         install_root_dir = aelius.get_data_path() .. "/mason2",
     }
@@ -32,6 +38,7 @@ lsp({
 lsp({
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    enabled = false,
     dependencies = {
         "williamboman/mason.nvim",
         "neovim/nvim-lspconfig",

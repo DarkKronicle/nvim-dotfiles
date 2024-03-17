@@ -84,6 +84,8 @@ completion({
 completion({
     "Exafunction/codeium.nvim",
     event = 'VeryLazy',
+    -- Handled by nix now
+    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
