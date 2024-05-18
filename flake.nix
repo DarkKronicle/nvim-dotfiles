@@ -139,7 +139,7 @@
           nix-doc nil lua-language-server nixd
           texlab
           svls
-          nu
+          nushell
         ];
       };
 
