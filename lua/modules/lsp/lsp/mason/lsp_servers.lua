@@ -1,6 +1,3 @@
--- TODO: let this fail gracefully
-local lsp_paths = require('core.binaries').lsp
-
 local function attach_capabilities(config)
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
     local caps = vim.lsp.protocol.make_client_capabilities()
@@ -18,17 +15,14 @@ local util = require ('lspconfig.util')
 
 -- Do *NOT* set up rust here, rustaceanvim will do that
 local servers = {
-    lua_ls = {
-        cmd = { lsp_paths.lua_ls },
-    },
-    texlab = {
-        cmd = { lsp_paths.texlab },
-    },
-    nil_ls = {
-        cmd = { lsp_paths.nil_ls },
+    lua_ls = true,
+    texlab = true,
+    nil_ls = true,
+    nushell = {
+        cmd = { "nu", "--lsp" },
+        filetypes = { "nu" },
     },
     svls = {
-        cmd = { lsp_paths.svls },
         root_dir = util.root_pattern(
            '.svlsconfig', '.svlsconfig.json', 'svls.toml', 'svls.yaml',
            'svls.yaml', 'svls.yaml', '*.qsf', '.git', '.svls.toml'

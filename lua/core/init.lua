@@ -25,6 +25,14 @@ local add_filetypes = function ()
     if not vim.filetype then
         return
     end
+    vim.filetype.add({
+        extension = {
+            nu = "nu",
+            nush = "nu",
+            nuon = "nu",
+            nushell = "nu",
+        },
+    })
 end
 
 

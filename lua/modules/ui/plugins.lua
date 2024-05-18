@@ -207,22 +207,8 @@ ui({
     keys = conf.smartsplits_keys,
     config = true,
 })
-
-ui({
-    'rolv-apneseth/tfm.nvim',
-    lazy = false,
-    keys = {
-        "<leader>pt",
-        function ()
-            local tfm = require('tfm')
-            tfm.open(nil, tfm.OPEN_MODE.vsplit)
-        end,
-        desc = "yazi floating",
-    },
-    opts = {
-        file_manager = "yazi",
-    }
-})
+ 
+-- TODO: Add actual yazi nvim plugin
 
 -- Defaults look quite nice (pretty sure I use catppuccin to modify it slightly too)
 ui({
@@ -233,13 +219,12 @@ ui({
 
 
 ui({
-    'folke/zen-mode.nvim',
-    cmd = 'ZenMode',
+    'pocco81/true-zen.nvim',
+    lazy = false,
     opts = {
-        window = {
-            backdrop = 0.6,
-        },
-
+        integrations = {
+            twilight = true,
+        }
     }
 })
 

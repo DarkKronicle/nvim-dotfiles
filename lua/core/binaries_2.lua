@@ -1,0 +1,1 @@
+/nix/store/akxdc733hl2ng371av9cvisinqxcjrfw-home-manager-files/.config/nvim/lua/core/binaries.lua

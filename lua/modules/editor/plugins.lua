@@ -5,7 +5,9 @@ local editor = require("core.pack").package
 editor({
     'gbprod/cutlass.nvim',
     lazy = false,
-    opts = {},
+    config = function ()
+      require("cutlass").setup({})
+    end,
     keys = {
         {
             'q',
@@ -97,12 +99,15 @@ editor({
 editor({
     'Aasim-A/scrollEOF.nvim',
     event = { 'CursorMoved', 'WinScrolled' },
-    opts = {},
+    config = function ()
+      require("scrollEOF").setup()
+    end
 })
 
 editor({
     "KaitlynEthylia/TreePin",
     requires = {'nvim-treesitter/nvim-treesitter'},
+    cond = false,
     keys = {
         -- TODO: Hydra
         {
@@ -149,7 +154,9 @@ editor({
 -- Woah this is awesome
 editor({
     'jghauser/fold-cycle.nvim',
-    opts = {},
+    config = function ()
+        require('fold-cycle').setup({})
+    end,
     keys = {
         {
             '<Tab>',
@@ -176,7 +183,7 @@ editor({
     opts = {
         open_fold_hl_timeout = 0,
         preview = { win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" } },
-        close_fold_kinds = { "imports" }, -- + comments?
+        close_fold_kinds_for_ft = { default = { "imports" } }, -- + comments?
         enable_get_fold_virt_text = true,
         fold_virt_text_handler = function(text, lnum, endLnum, width)
             -- local suffix = "  "

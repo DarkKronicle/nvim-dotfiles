@@ -1,13 +1,40 @@
 local conf = require("modules.writing.config")
 local writing = require("core.pack").package
 
+writing({
+    'epwalsh/obsidian.nvim',
+    version = '*',
+    ft = 'markdown',
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function ()
+        require("obsidian").setup({
+            workspaces = {
+                {
+                    name = "garden",
+                    path = "~/Documents/garden"
+                },
+            },
+            completion = {
+                -- Set to false to disable completion.
+                nvim_cmp = true,
+                -- Trigger completion at 2 chars.
+                min_chars = 2,
+            },
+            preferred_link_style = "wiki",
+            wiki_link_func = "prepend_note_path",
+        })
+    end
+})
 
 writing({
+    cond = false,
     "nvim-neorg/neorg",
     ft = { "norg" },
     cmd = { "Neorg" },
+    version = "v7.0.0",
     dependencies = {
         -- "3rd/image.nvim",
+        -- { "luarocks.nvim" },
         {
             "jarvismkennedy/neorg-roam.nvim",
             cond = true,
@@ -19,12 +46,19 @@ writing({
         },
         "nvim-neorg/neorg-telescope",
     },
-    build = ":Neorg sync-parsers",
+    -- build = ":Neorg sync-parsers",
     opts = require("modules.writing.neorg.config").opts,
     config = require("modules.writing.neorg.config").config,
 })
 
+-- writing({
+    -- "vhyrro/luarocks.nvim",
+    -- priority = 2000, -- We'd like this plugin to load first out of the rest
+    -- config = true, -- This automatically runs `require("luarocks-nvim").setup()`
+-- })
+
 writing({
+    cond = false,
     'nvim-neorg/neorg-telescope',
 })
 

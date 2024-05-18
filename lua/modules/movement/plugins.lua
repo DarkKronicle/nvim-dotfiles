@@ -37,12 +37,15 @@ movement({
             mode = 'n',
         },
     },
-    opts = {},
+    config = function ()
+        require("accelerated-jk").setup({})
+    end
 })
 
 movement({
     "LeonHeidelbach/trailblazer.nvim",
     event = 'VeryLazy',
+    enabled = false,
     keys = {
         {
             '<leader><leader>',

@@ -31,25 +31,49 @@ end
 
 
 function pack:boot_strap()
-    local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-    local state = uv.fs_stat(lazy_path)
-    if not state then
-        local cmd = "!git clone --filter=blob:none https://github.com/folke/lazy.nvim --branch=stable " .. lazy_path
-        api.nvim_command(cmd)
+    local lazy = require("core.lazyCat")
+    local cat = require("core.nixCatsUtils")
+    cat.setup { non_nix_value = true };
+    local pluginList = nil
+    local nixLazyPath = nil
+
+    if cat.isNixCats then
+
+        local allPlugins = require("nixCats").pawsible.allPlugins
+        -- it is called pluginList because we only need to pass in the names
+        pluginList = lazy.mergePluginTables( allPlugins.start, allPlugins.opt)
+        -- it wasnt detecting these because the names are slightly different.
+        -- when that happens, add them to the list, then also specify name in the lazySpec
+        pluginList[ [[Comment.nvim]] ] = ""
+        pluginList[ [[LuaSnip]] ] = ""
+        pluginList[ [[heirline-components.nvim]] ] = ""
+        pluginList[ [[accelerated-jk.nvim]] ] = ""
+        pluginList[ [[cutlass.nvim]] ] = ""
+        pluginList[ [[mini.animate]] ] = ""
+        pluginList[ [[mini.hipatterns]] ] = ""
+        pluginList[ [[mini.surround]] ] = ""
+        pluginList[ [[fold-cycle.nvim]] ] = ""
+        pluginList[ [[nvim]] ] = ""
+        pluginList[ [[scrollEOF.nvim]] ] = ""
+        pluginList[ [[telescope-egrepify.nvim]] ] = ""
+        nixLazyPath = allPlugins.start[ [[lazy.nvim]] ]
     end
-    vim.opt.runtimepath:prepend(lazy_path)
-    local lazy = require("lazy")
+
     local opts = {
-        performance = { 
+        performance = {
             -- Lazy moment
             reset_packpath = false,
         },
         -- Put lazy lock in a more central location
         lockfile = aelius.get_data_path() .. "/lazy-lock.json",
-        root = aelius.get_lazy_path(),
+        install = {
+            missing = not cat.isNixCats
+        }
     }
+
     self:load_modules_packages()
-    lazy.setup(self.repos, opts)
+    lazy.setup(pluginList, nixLazyPath, self.repos, opts)
+
     for k, v in pairs(self) do
         if type(v) ~= "function" then
             self[k] = nil

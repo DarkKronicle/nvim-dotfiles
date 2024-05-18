@@ -33,7 +33,7 @@ completion({
 
 completion({
     "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp",
+    build = require("core.nixCatsUtils").ifNixCats(nil, "make install_jsregexp"),
     version = "v2.*",
     event = "InsertEnter",
     dependencies = {

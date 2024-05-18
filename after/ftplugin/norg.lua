@@ -1,11 +1,11 @@
-vim.o.wrap = true
-vim.o.linebreak = true
-vim.o.smartindent = true
-vim.o.autoindent = true
-vim.o.breakindentopt = "list:-1"
-vim.o.formatlistpat = [[^\s*[-\*\~]\+[\.\)]*\s\+]]
+vim.bo.wrap = true
+vim.bo.linebreak = true
+vim.bo.smartindent = true
+vim.bo.autoindent = true
+vim.bo.breakindentopt = "list:-1"
+vim.bo.formatlistpat = [[^\s*[-\*\~]\+[\.\)]*\s\+]]
 
-vim.o.colorcolumn = "180"
+vim.bo.colorcolumn = "180"
 vim.bo.textwidth = 180
 
 -- TODO: Make this fail gracefully

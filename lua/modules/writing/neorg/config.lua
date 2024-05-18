@@ -64,7 +64,7 @@ M.opts = {
         },
         ["core.esupports.metagen"] = {
             config = {
-                type = "auto",
+                -- type = "auto",
             },
         },
         ["core.qol.todo_items"] = {},
@@ -102,7 +102,7 @@ M.opts = {
         },
         ["core.summary"] = {},
         ["core.manoeuvre"] = {},
-        ["core.ui.calendar"] = {},
+        -- ["core.ui.calendar"] = {},
     }
 }
 

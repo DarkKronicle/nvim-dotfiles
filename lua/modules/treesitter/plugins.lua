@@ -3,8 +3,11 @@ local ts = require("core.pack").package
 
 ts({
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    build = require("core.nixCatsUtils").ifNixCats(nil, ":TSUpdate"),
     config = conf.nvim_treesitter,
+    dependencies = require("core.nixCatsUtils").ifNixCats(nil, {
+        "nushell/tree-sitter-nu"
+    }),
 })
 
 

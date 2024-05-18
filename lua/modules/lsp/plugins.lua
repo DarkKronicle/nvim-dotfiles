@@ -29,7 +29,7 @@ lsp({
     cmd = "Mason",
     build = ":MasonUpdate",
     -- Handled by nix now
-    enabled = false,
+    cond = false,
     opts = {
         install_root_dir = aelius.get_data_path() .. "/mason2",
     }
@@ -38,7 +38,7 @@ lsp({
 lsp({
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    enabled = false,
+    cond = false,
     dependencies = {
         "williamboman/mason.nvim",
         "neovim/nvim-lspconfig",

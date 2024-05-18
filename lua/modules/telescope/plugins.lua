@@ -4,7 +4,7 @@ local ts = require("core.pack").package
 -- Use telescope specific fzf
 ts({
     'nvim-telescope/telescope-fzf-native.nvim', 
-    build = 'make',
+    build = require('core.nixCatsUtils').ifNixCats(nil, 'make'),
     lazy = false,
 })
 
@@ -74,6 +74,7 @@ ts({
 -- But dressing makes it look nice just within Nerdy
 ts({
     '2kabhishek/nerdy.nvim',
+    enabled = false,
     dependencies = {
         'stevearc/dressing.nvim',
         'nvim-telescope/telescope.nvim',
