@@ -19,6 +19,7 @@
     p.ron 
     p.rust 
     p.toml 
+    p.nix 
     p.vimdoc 
     p.vim 
     p.yaml 
@@ -28,8 +29,7 @@
     p.kdl 
     p.norg
     p.lua
-    (pkgs.tree-sitter.withPlugins (pp: [
-      pp.tree-sitter-nu
-    ]))
-  ]))
+  ] ++ (with pkgs.tree-sitter.builtGrammars; [
+    tree-sitter-nu
+  ])))
 ]
