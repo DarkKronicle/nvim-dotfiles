@@ -78,6 +78,14 @@
       url = "github:fdschmidt93/telescope-egrepify.nvim";
       flake = false;
     };
+    "plugins-broot-nvim" = {
+      url = "github:aohoyd/broot.nvim";
+      flake = false;
+    };
+    "treesitter-kanata" = {
+      url = "github:postsolar/tree-sitter-kanata";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -146,14 +154,13 @@
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
         customPlugins = with pkgs.nixCatsBuilds; [ ];
-        gitPlugins = (((import ./custom-plugins.nix) { pkgs = pkgs; }) ++ [
+        gitPlugins = (((import ./custom-plugins.nix) { pkgs = pkgs; }) ++ 
           # Now you may be thinking, this isn't a plugin. You're right! But this needs to be in the runtime
           # path so that the queries and highlights are there!
-          pkgs.tree-sitter.builtGrammars.tree-sitter-nu
-        ]);
+          (import ./treesitter-src.nix { inherit pkgs inputs; })); 
         general = (
           ((import ./vim-plugins.nix) { pkgs = pkgs; }) 
-          ++ ((import ./treesitter.nix) { pkgs = pkgs; })
+          ++ ((import ./treesitter.nix) { pkgs = pkgs; custom-treesitter = (import ./treesitter-grammars.nix { inherit pkgs inputs; }); })
         );
       };
 

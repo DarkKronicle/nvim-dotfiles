@@ -9,12 +9,17 @@ function ts.treesitter ()
             install_info = {},
             filetype = "nu",
         }
+        parser_config.kanata = {
+            install_info = {},
+            filetype = "kanata",
+        }
     end
     require("nvim-treesitter.configs").setup({
         ensure_installed = require("core.nixCatsUtils").ifNixCats(nil, { "lua", "bash", "vim", "json", "latex", "python", "markdown", "ron", "rust", "toml", "vimdoc", "yaml"  }),
         autopairs = { enable = false },
         highlight = {
             enable = true,
+            additional_vim_regex_highlighting = { "kanata" },
         },
         indent = {
             enable = true

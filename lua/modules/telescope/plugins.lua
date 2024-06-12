@@ -20,14 +20,14 @@ ts({
     },
     config = conf.telescope,
     keys = {
-        {
-            '<leader>pf',
-            function ()
-                require('telescope.builtin').find_files()
-            end,
-            mode = 'n',
-            desc = 'Telescope fuzzy find files',
-        },
+        -- {
+            -- '<leader>pf',
+            -- function ()
+                -- require('telescope.builtin').find_files()
+            -- end,
+            -- mode = 'n',
+            -- desc = 'Telescope fuzzy find files',
+        -- },
         {
             '<leader>ps',
             function ()

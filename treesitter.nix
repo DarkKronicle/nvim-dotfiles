@@ -1,5 +1,6 @@
 {
-  pkgs
+  pkgs,
+  custom-treesitter
 }:
 # https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/parsing/tree-sitter/update.nix
 # This list has nothing to do with what you can do with :TSInstall. These are all packaged by the nix chads.
@@ -29,7 +30,4 @@
     p.kdl 
     p.norg
     p.lua
-  ] ++ (with pkgs.tree-sitter.builtGrammars; [
-    tree-sitter-nu
-  ])))
-]
+  ] ++ custom-treesitter))]

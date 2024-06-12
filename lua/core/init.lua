@@ -33,6 +33,11 @@ local add_filetypes = function ()
             nushell = "nu",
         },
     })
+    vim.filetype.add({
+        extension = {
+            kbd = "kanata",
+        },
+    })
 end
 
 

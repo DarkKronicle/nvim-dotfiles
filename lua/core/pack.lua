@@ -56,6 +56,7 @@ function pack:boot_strap()
         pluginList[ [[nvim]] ] = ""
         pluginList[ [[scrollEOF.nvim]] ] = ""
         pluginList[ [[telescope-egrepify.nvim]] ] = ""
+        pluginList[ [[broot.nvim]] ] = ""
         nixLazyPath = allPlugins.start[ [[lazy.nvim]] ]
     end
 

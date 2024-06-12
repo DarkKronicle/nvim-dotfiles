@@ -19,6 +19,24 @@ ui({
 })
 
 ui({
+    'aohoyd/broot.nvim',
+    config = function ()
+        require("broot").setup({
+            broot_conf_path = vim.fn.expand("~/.config/broot/conf.toml"),
+            shell = "bash",
+            shellcmdflag = "-c",
+            shellredir = ">",
+        })
+    end,
+    keys = {
+        {
+            "<leader>pf",
+            "<cmd>BrootWorkingDir<cr>"
+        },
+    }
+})
+
+ui({
     'famiu/bufdelete.nvim',
     lazy = true,
     cmd = { 'Bdelete', 'Bwipeout' },
