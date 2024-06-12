@@ -68,3 +68,7 @@ for _, ch in ipairs(undo_ch) do
   vim.keymap.set("i", ch, ch .. "<c-g>u")
 end
 
+
+require("broot").setup()
+
+map('n', '<leader>pf', '<cmd>BrootWorkingDir<cr>', { desc = "Broot fuzzy search current working directory" })

@@ -13,5 +13,4 @@ with pkgs.neovimPlugins; [
   heirline-components-nvim
   telescope-egrepify-nvim
   cmp-luasnip-choice
-  broot-nvim
 ]

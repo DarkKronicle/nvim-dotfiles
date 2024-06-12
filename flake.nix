@@ -78,10 +78,6 @@
       url = "github:fdschmidt93/telescope-egrepify.nvim";
       flake = false;
     };
-    "plugins-broot-nvim" = {
-      url = "github:aohoyd/broot.nvim";
-      flake = false;
-    };
     "treesitter-kanata" = {
       url = "github:postsolar/tree-sitter-kanata";
       flake = false;
