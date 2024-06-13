@@ -114,6 +114,7 @@ M.open = function(path)
     local terminal = vim.fn.termopen(cmd, { on_exit = on_exit })
 
     vim.cmd.startinsert()
+    vim.api.nvim_feedkeys("i", "i", true)
     vim.api.nvim_create_autocmd("BufEnter", {
         buffer = float.buf,
         callback = function()
