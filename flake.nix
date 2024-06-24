@@ -22,10 +22,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     nixCats.inputs.nixpkgs.follows = "nixpkgs";
-    nixCats.inputs.flake-utils.follows = "flake-utils";
     # for if you wish to select a particular neovim version
     # neovim-flake = {
     #   url = "github:neovim/neovim/nightly?dir=contrib";

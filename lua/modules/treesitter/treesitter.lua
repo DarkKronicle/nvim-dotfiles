@@ -19,7 +19,7 @@ function ts.treesitter ()
         autopairs = { enable = false },
         highlight = {
             enable = true,
-            additional_vim_regex_highlighting = { "kanata" },
+            additional_vim_regex_highlighting = { "markdown" },
         },
         indent = {
             enable = true

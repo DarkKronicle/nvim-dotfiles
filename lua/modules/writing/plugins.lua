@@ -76,6 +76,53 @@ writing({
 })
 
 writing({
+    'zk-org/zk-nvim',
+    keys = {
+        {
+            "<leader>zn",
+            "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>",
+            mode = 'n',
+            desc = 'Create new note and prompt for title',
+        },
+        {
+            "<leader>zo",
+            "<Cmd>ZkNotes { sort = { 'modified' } }<CR>",
+            mode = 'n',
+            desc = 'Open notes',
+        },
+        {
+            "<leader>zi",
+            "<Cmd>ZkInsertLink<CR>",
+            mode = 'n',
+            desc = 'Insert link',
+        },
+        {
+            "<leader>zi",
+            "<Cmd>'<'>ZkInsertLinkAtSelection<CR>",
+            mode = 'v',
+            desc = 'Insert link',
+        },
+        {
+            "<leader>zb",
+            "<Cmd>ZkBacklinks<CR>",
+            mode = 'n',
+            desc = 'Open backlinks',
+        },
+        {
+            "<leader>zl",
+            "<Cmd>ZkLinks<CR>",
+            mode = 'n',
+            desc = 'Open backlinks',
+        },
+    },
+    config = function()
+        require("zk").setup({
+            picker = "telescope"
+        })
+    end,
+})
+
+writing({
     '3rd/image.nvim',
     cond = false,
     ft = { 'markdown', 'norg' },

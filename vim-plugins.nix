@@ -62,4 +62,5 @@ with pkgs.vimPlugins; [
   which-key-nvim
   true-zen-nvim
   treesj
+  zk-nvim
 ]
