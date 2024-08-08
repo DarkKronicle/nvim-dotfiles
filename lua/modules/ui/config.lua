@@ -23,6 +23,14 @@ function config.neotree()
     })
 end
 
+function config.yazi()
+    local yazi = require('yazi')
+    yazi.setup({
+        use_ya_for_events_reading = false,
+        use_yazi_client_id_flag = false,
+    })
+end
+
 function config.heirline()
     local heirline = require('heirline')
     local heirline_components = require("heirline-components.all")

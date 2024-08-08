@@ -17,10 +17,21 @@ local util = require ('lspconfig.util')
 local servers = {
     lua_ls = true,
     texlab = true,
-    nil_ls = true,
+    nixd = {
+        cmd = { "nixd", "--" }
+
+    },
     nushell = {
         cmd = { "nu", "--lsp" },
         filetypes = { "nu" },
+        settings = {
+            nixpkgs = {
+                expr = "import <nixpkgs> { }",
+            },
+            formatting = {
+                command = { "nixfmt" },
+            },
+        },
     },
     svls = {
         root_dir = util.root_pattern(

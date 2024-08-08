@@ -13,4 +13,6 @@ with pkgs.neovimPlugins; [
   heirline-components-nvim
   telescope-egrepify-nvim
   cmp-luasnip-choice
+  yazi-nvim
+  tiny-code-action-nvim
 ]

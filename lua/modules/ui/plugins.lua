@@ -19,6 +19,19 @@ ui({
 })
 
 ui({
+    'mikavilpas/yazi.nvim',
+    event = 'VeryLazy',
+    config = conf.yazi,
+    keys = {
+        {
+            "<leader>pd",
+            "<cmd>Yazi<cr>",
+            desc = "Open yazi at current file",
+        },
+    },
+})
+
+ui({
     'famiu/bufdelete.nvim',
     lazy = true,
     cmd = { 'Bdelete', 'Bwipeout' },

@@ -25,6 +25,27 @@ lsp({
 })
 
 lsp({
+    "rachartier/tiny-code-action.nvim",
+    event = "LspAttach",
+    config = function () 
+        require('tiny-code-action').setup({
+            backend = "delta",
+
+        })
+    end,
+    keys = {
+        {
+            "<M-CR>",
+            function ()
+                require('tiny-code-action').code_action()
+            end,
+            desc = 'Code Action',
+        }
+    }
+
+})
+
+lsp({
     "williamboman/mason.nvim",
     cmd = "Mason",
     build = ":MasonUpdate",

@@ -76,6 +76,14 @@
       url = "github:fdschmidt93/telescope-egrepify.nvim";
       flake = false;
     };
+    "plugins-yazi-nvim" = {
+      url = "github:mikavilpas/yazi.nvim";
+      flake = false;
+    };
+    "plugins-tiny-code-action-nvim" = {
+      url = "github:rachartier/tiny-code-action.nvim";
+      flake = false;
+    };
     "treesitter-kanata" = {
       url = "github:postsolar/tree-sitter-kanata";
       flake = false;
@@ -138,7 +146,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           universal-ctags ripgrep fd gcc
-          nix-doc nil lua-language-server nixd
+          nix-doc lua-language-server nixd
           texlab
           svls
           nushell
