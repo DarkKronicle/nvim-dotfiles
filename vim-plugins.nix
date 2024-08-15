@@ -32,8 +32,8 @@ with pkgs.vimPlugins; [
   marks-nvim
   neoconf-nvim
   neodev-nvim
-  # neorg
-  # neorg-telescope
+  neorg
+  neorg-telescope
   noice-nvim
   nui-nvim
   catppuccin-nvim

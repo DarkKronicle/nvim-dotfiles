@@ -101,7 +101,7 @@ M.opts = {
             },
         },
         ["core.summary"] = {},
-        ["core.manoeuvre"] = {},
+        -- ["core.manoeuvre"] = {},
         -- ["core.ui.calendar"] = {},
     }
 }

@@ -27,7 +27,6 @@ writing({
 })
 
 writing({
-    cond = false,
     "nvim-neorg/neorg",
     ft = { "norg" },
     cmd = { "Neorg" },

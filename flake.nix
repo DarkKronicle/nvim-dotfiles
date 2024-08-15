@@ -24,6 +24,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     nixCats.inputs.nixpkgs.follows = "nixpkgs";
+    
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
     # for if you wish to select a particular neovim version
     # neovim-flake = {
     #   url = "github:neovim/neovim/nightly?dir=contrib";
@@ -113,6 +116,7 @@
         # Once we add this overlay to our nixpkgs, we are able to
         # use `pkgs.neovimPlugins`, which is a set of our plugins.
         (standardPluginOverlay inputs)
+        inputs.neorg-overlay.overlays.default
         # add any flake overlays here.
       ];
       # these overlays will be wrapped with ${system}
