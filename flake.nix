@@ -87,6 +87,10 @@
       url = "github:rachartier/tiny-code-action.nvim";
       flake = false;
     };
+    "plugins-neorg-extras" = {
+      url = "github:juniorsundar/neorg_extras";
+      flake = false;
+    };
     "treesitter-kanata" = {
       url = "github:postsolar/tree-sitter-kanata";
       flake = false;
@@ -154,6 +158,7 @@
           texlab
           svls
           nushell
+          imagemagick
         ];
       };
 
@@ -215,7 +220,9 @@
       };
       # populates $LUA_PATH and $LUA_CPATH
       extraLuaPackages = {
-        test = [ (_:[]) ];
+        general = [ 
+          (ps: [ ps.magick ]) 
+        ];
       };
     };
 

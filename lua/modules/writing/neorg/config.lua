@@ -9,8 +9,12 @@ M.opts = {
                 engine = "nvim-cmp",
             },
         },
-        --     ["core.latex.renderer"] = {},
-        --     ["core.integrations.image"] = {},
+        ["core.latex.renderer"] = {
+            config = {
+                renderer = "core.integrations.image",
+                conceal = true,
+            }
+        },
         ["core.itero"] = {},
         ["core.export"] = {},
         ["core.export.markdown"] = {
@@ -64,7 +68,7 @@ M.opts = {
         },
         ["core.esupports.metagen"] = {
             config = {
-                -- type = "auto",
+                type = "auto",
             },
         },
         ["core.qol.todo_items"] = {},
@@ -79,11 +83,12 @@ M.opts = {
             config = {
                 workspaces = {
                     home = "~/Documents/neorg",
+                    me = "~/Documents/me",
                 },
                 index = "index.norg",
                 autodetect = true,
                 [[ -- autochdir = false, ]],
-                default_workspace = "home",
+                default_workspace = "me",
             },
         },
 
@@ -121,7 +126,13 @@ M.config = function()
     -- Neorg
     vim.keymap.set("n", "<leader>;", ":lua ToggleToc()<CR>", { noremap = true, silent = true })
     vim.keymap.set("n", "<leader>nt", ":Neorg mode traverse-heading <cr>", {})
+    vim.keymap.set("n", "<leader>nw", ":Telescope neorg_workspace_selector<cr>", {})
+    vim.keymap.set("n", "<leader>nb", ":Telescope neorg_block_injector<cr>", {})
+    vim.keymap.set("n", "<leader>nn", ":Telescope neorg_node_injector<cr>", {})
+    vim.keymap.set("n", "<leader>ns", ":Telescope neorg_show_backlinks<cr>", {})
     vim.keymap.set("n", "<leader>nT", ":Neorg mode norg <cr>", {})
+
+    require("modules.writing.neorg.autocommands").setup()
 end
 
 return M

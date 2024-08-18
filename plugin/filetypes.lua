@@ -7,24 +7,24 @@
 
 local settings = aelius.filetype_settings
 
--- settings({
-    -- norg = {
-        -- plugins = {
-            -- cmp = function(cmp)
-                -- cmp.setup.filetype("norg", {
-                    -- sources = {
-                        -- { name = "path", priority = 1 },
-                        -- { name = "luasnip", priority = 1 },
-                        -- { name = "neorg", priority = 1 },
-                        -- { name = "dictionary", priority = 1 },
-                        -- { name = "spell", priority = 1 },
-                        -- { name = "buffer", group_index = 2 },
-                        -- { name = "emoji", group_index = 2 },
-                        -- { name = "latex_symbols", group_index = 2 },
-                         -- { name = 'codeium', priority = 1 },
-                    -- },
-                -- })
-            -- end,
-        -- },
-    -- },
--- })
+settings({
+    norg = {
+        plugins = {
+            cmp = function(cmp)
+                cmp.setup.filetype("norg", {
+                    sources = {
+                        { name = "path", priority = 1 },
+                        { name = "luasnip", priority = 1 },
+                        { name = "neorg", priority = 1 },
+                        { name = "dictionary", priority = 1 },
+                        { name = "spell", priority = 1 },
+                        { name = "buffer", group_index = 2 },
+                        { name = "emoji", group_index = 2 },
+                        { name = "latex_symbols", group_index = 2 },
+                         { name = 'codeium', priority = 1 },
+                    },
+                })
+            end,
+        },
+    },
+})

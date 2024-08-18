@@ -32,17 +32,9 @@ writing({
     cmd = { "Neorg" },
     version = "v7.0.0",
     dependencies = {
-        -- "3rd/image.nvim",
+        "3rd/image.nvim",
         -- { "luarocks.nvim" },
-        {
-            "jarvismkennedy/neorg-roam.nvim",
-            cond = true,
-            branch = "dev",
-            dependencies = {
-                "nvim-telescope/telescope.nvim",
-                "nvim-lua/plenary.nvim",
-            },
-        },
+        "juniorsundar/neorg_extras",
         "nvim-neorg/neorg-telescope",
     },
     -- build = ":Neorg sync-parsers",
@@ -59,6 +51,11 @@ writing({
 writing({
     cond = false,
     'nvim-neorg/neorg-telescope',
+})
+
+writing({
+    'shortcuts/no-neck-pain.nvim',
+    cmd = { 'NoNeckPain' },
 })
 
 writing({
@@ -121,9 +118,12 @@ writing({
     end,
 })
 
+-- writing({
+    -- 'jbyuki/nabla.nvim',
+-- })
+
 writing({
     '3rd/image.nvim',
-    cond = false,
     ft = { 'markdown', 'norg' },
     opts = {
         backend = 'kitty',
@@ -143,7 +143,6 @@ writing({
         },
     },
     config = function(_, opts)
-        aelius.add_package_path(vim.fn.expand("$HOME" .. "/.luarocks/share/lua/5.1"))
         require("image").setup(opts)
     end,
 

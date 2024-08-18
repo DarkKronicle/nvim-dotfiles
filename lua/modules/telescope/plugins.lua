@@ -19,6 +19,7 @@ ts({
         },
     },
     config = conf.telescope,
+    cmd = 'Telescope',
     keys = {
         -- {
             -- '<leader>pf',

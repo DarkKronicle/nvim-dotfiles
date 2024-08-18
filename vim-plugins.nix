@@ -63,4 +63,7 @@ with pkgs.vimPlugins; [
   true-zen-nvim
   treesj
   zk-nvim
+  image-nvim
+  nabla-nvim
+  no-neck-pain-nvim
 ]

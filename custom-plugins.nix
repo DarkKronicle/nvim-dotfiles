@@ -15,4 +15,5 @@ with pkgs.neovimPlugins; [
   cmp-luasnip-choice
   yazi-nvim
   tiny-code-action-nvim
+  neorg-extras
 ]
