@@ -506,8 +506,7 @@
         "plugins-scrollEOF-nvim": "plugins-scrollEOF-nvim",
         "plugins-telescope-egrepify-nvim": "plugins-telescope-egrepify-nvim",
         "plugins-tiny-code-action-nvim": "plugins-tiny-code-action-nvim",
-        "plugins-yazi-nvim": "plugins-yazi-nvim",
-        "treesitter-kanata": "treesitter-kanata"
+        "plugins-yazi-nvim": "plugins-yazi-nvim"
       }
     },
     "systems": {
@@ -537,22 +536,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "treesitter-kanata": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713627792,
-        "narHash": "sha256-C1JEvaSJAwV/040KAjAK2aX+jdkIMVixr78c7jY0COU=",
-        "owner": "postsolar",
-        "repo": "tree-sitter-kanata",
-        "rev": "a6213d06ea6efa432702bbbc6b4c5dcddc21df2a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "postsolar",
-        "repo": "tree-sitter-kanata",
         "type": "github"
       }
     }

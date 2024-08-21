@@ -91,10 +91,6 @@
       url = "github:juniorsundar/neorg_extras";
       flake = false;
     };
-    "treesitter-kanata" = {
-      url = "github:postsolar/tree-sitter-kanata";
-      flake = false;
-    };
   };
 
   # see :help nixCats.flake.outputs
