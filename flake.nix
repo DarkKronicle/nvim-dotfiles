@@ -153,12 +153,19 @@
       # this includes LSPs
       lspsAndRuntimeDeps = {
         general = with pkgs; [
-          universal-ctags ripgrep fd gcc
-          nix-doc lua-language-server nixd
+          universal-ctags 
+          ripgrep 
+          fd 
+          gcc
+          nix-doc 
+          lua-language-server 
+          nixd
           texlab
           svls
           nushell
           imagemagick
+          csharp-ls
+          netcoredbg
         ];
       };
 

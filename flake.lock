@@ -474,11 +474,11 @@
     "plugins-yazi-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1723915625,
-        "narHash": "sha256-GXVjrPkQwC1KDQgAKi+33tCqlqAj0z98FjYNuscfliQ=",
+        "lastModified": 1724006726,
+        "narHash": "sha256-DIX36Y6tGsCXg2TkhSynfpejz0LaOVXlIGPOBNQhJdo=",
         "owner": "mikavilpas",
         "repo": "yazi.nvim",
-        "rev": "bdc33d08f8ca56c66bdd34773722936069a9da5b",
+        "rev": "307a3eabb3b941b046d15da1cb9e6d3e611e5221",
         "type": "github"
       },
       "original": {

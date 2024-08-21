@@ -25,7 +25,9 @@ ui({
     keys = {
         {
             "<leader>pd",
-            "<cmd>Yazi<cr>",
+            function()
+                require("yazi").yazi()
+            end,
             desc = "Open yazi at current file",
         },
     },

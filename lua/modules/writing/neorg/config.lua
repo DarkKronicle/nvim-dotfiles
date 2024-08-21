@@ -82,13 +82,13 @@ M.opts = {
         ["core.dirman"] = { -- Manage your directories with Neorg
             config = {
                 workspaces = {
-                    home = "~/Documents/neorg",
-                    me = "~/Documents/me",
+                    compendium = "~/Documents/compendium",
+                    atlas = "~/Documents/atlas",
                 },
                 index = "index.norg",
                 autodetect = true,
                 [[ -- autochdir = false, ]],
-                default_workspace = "me",
+                default_workspace = "compendium",
             },
         },
 

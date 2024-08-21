@@ -17,6 +17,7 @@ local util = require ('lspconfig.util')
 local servers = {
     lua_ls = true,
     texlab = true,
+    csharp_ls = true,
     nixd = {
         cmd = { "nixd", "--" }
 

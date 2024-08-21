@@ -7,6 +7,7 @@
 [
   (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ 
     p.c 
+    p.c_sharp 
     p.java 
     p.bash 
     p.json 

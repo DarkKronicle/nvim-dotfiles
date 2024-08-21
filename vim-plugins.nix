@@ -57,8 +57,6 @@ with pkgs.vimPlugins; [
   bufdelete-nvim
   glance-nvim
   neo-tree-nvim
-  obsidian-nvim
-  catppuccin-nvim
   which-key-nvim
   true-zen-nvim
   treesj
@@ -66,4 +64,8 @@ with pkgs.vimPlugins; [
   image-nvim
   nabla-nvim
   no-neck-pain-nvim
+  nvim-dap
+  nvim-dap-ui
+  nvim-dap-virtual-text
+  cmp-dap
 ]
