@@ -215,3 +215,60 @@ debug({
         })
     end
 })
+
+
+debug({
+    "nvim-neotest/neotest",
+    lazy = true,
+    keys = {
+        {
+            "<leader>bt",
+            function()
+                require("neotest").run.run(vim.fn.expand("%"))
+            end
+        },
+        {
+            "<leader>bT",
+            function()
+                require("neotest").run.run(vim.fn.expand("%"))
+            end
+        },
+    },
+    cmd = { "Neotest" },
+    dependencies = {
+        "nvim-neotest/nvim-nio",
+        "nvim-lua/plenary.nvim",
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        -- TODO: dotnet doesn't work with other adapters
+        -- "fredrikaverpil/neotest-golang",
+        -- "nvim-neotest/neotest-python",
+        -- "weilbith/neotest-gradle",
+        -- "rcasia/neotest-java",
+        "Issafalcon/neotest-dotnet",
+    },
+    config = function()
+        require("neotest").setup({
+            adapters = {
+                -- require("neotest-golang"),
+                -- require("neotest-python"),
+                -- require("neotest-gradle"),
+                -- require("neotest-java"),
+                require("neotest-dotnet"),
+            },
+        })
+    end,
+})
+
+debug({
+    "andythigpen/nvim-coverage",
+    config = function()
+        require("coverage").setup()
+        local generate_test_coverage = function ()
+            -- Assumes you have dotnet-test-coverage on your path
+            local workspace = vim.lsp.buf.list_workspace_folders()[1]
+            vim.fn.jobstart("dotnet-test-coverage '" .. workspace .. "'", { cwd = workspace, detach = true })
+        end
+        aelius.command("DotnetTestCoverage", generate_test_coverage)
+    end
+})

@@ -117,11 +117,12 @@ config.smartsplits_keys = {
 function config.animate()
     local animate = require('mini.animate')
     -- http://www.lazyvim.org/extras/ui/mini-animate
-    local mouse_scrolled = false
+    aelius.disable_animate_next = false
+    aelius.disable_animate = false
     for _, scroll in ipairs({ "Up", "Down" }) do
         local key = "<ScrollWheel" .. scroll .. ">"
         vim.keymap.set({ "", "i" }, key, function()
-            mouse_scrolled = true
+            aelius.disable_animate_next = true
             return key
         end, { expr = true })
     end
@@ -148,8 +149,8 @@ function config.animate()
             timing = animate.gen_timing.linear({ duration = 200, unit = "total" }),
             subscroll = animate.gen_subscroll.equal({
                 predicate = function(total_scroll)
-                    if mouse_scrolled then
-                        mouse_scrolled = false
+                    if aelius.disable_animate or aelius.disable_animate_next then
+                        aelius.disable_animate_next = false
                         return false
                     end
                     -- TODO: make this scrolloff dependent

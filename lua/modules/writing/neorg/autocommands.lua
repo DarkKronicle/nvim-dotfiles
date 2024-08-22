@@ -5,7 +5,7 @@ M.setup = function()
     aelius.augroup("neorg", {
         {
             event = 'FileType',
-            pattern = { "*.norg" },
+            pattern = { "norg" },
             command = function(event)
                 if not M.necked then
                     vim.cmd("NoNeckPain")
@@ -18,9 +18,11 @@ M.setup = function()
             event = 'BufWritePre',
             pattern = { "*.norg" },
             command = function(event)
+                aelius.disable_animate = true
                 vim.cmd([[
-                    normal m`gg=G``
+                    normal m`gg=G``zz
                 ]])
+                aelius.disable_animate = false
             end
 
         }
