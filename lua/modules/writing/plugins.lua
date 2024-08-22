@@ -9,7 +9,9 @@ writing({
     dependencies = {
         "3rd/image.nvim",
         -- { "luarocks.nvim" },
-        "juniorsundar/neorg_extras",
+        {
+            "juniorsundar/neorg-extras",
+        },
         "nvim-neorg/neorg-telescope",
     },
     -- build = ":Neorg sync-parsers",

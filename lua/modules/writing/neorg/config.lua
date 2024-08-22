@@ -108,6 +108,9 @@ M.opts = {
         ["core.summary"] = {},
         -- ["core.manoeuvre"] = {},
         -- ["core.ui.calendar"] = {},
+        ["externals.agenda"] = {},
+        ["externals.roam"] = {},
+        ["externals.many-mans"] = {},
     }
 }
 

@@ -88,7 +88,7 @@
       flake = false;
     };
     "plugins-neorg-extras" = {
-      url = "github:juniorsundar/neorg_extras";
+      url = "github:juniorsundar/neorg-extras";
       flake = false;
     };
   };
