@@ -108,9 +108,13 @@ M.opts = {
         ["core.summary"] = {},
         -- ["core.manoeuvre"] = {},
         -- ["core.ui.calendar"] = {},
-        ["externals.agenda"] = {},
-        ["externals.roam"] = {},
-        ["externals.many-mans"] = {},
+        ["external.agenda"] = {},
+        ["external.roam"] = {},
+        ["external.many-mans"] = {
+            config = {
+                treesitter_fold = false
+            }
+        }
     }
 }
 

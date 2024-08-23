@@ -17,4 +17,4 @@ require('ufo').detach()
 
 vim.defer_fn(function()
     vim.cmd("Neorg render-latex enable")
-end, 500)
+end, 2000)
