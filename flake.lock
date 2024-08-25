@@ -410,11 +410,11 @@
     "plugins-neorg-extras": {
       "flake": false,
       "locked": {
-        "lastModified": 1724311549,
-        "narHash": "sha256-KTBqia+QX/Yjg08UFBgzAm7y1inJPQ5+Jdnvu9SejuQ=",
+        "lastModified": 1724438826,
+        "narHash": "sha256-h3fcJJn6ARkcCiLYakoHWFv6JsSzvZwl7/RHBRQKv4o=",
         "owner": "juniorsundar",
         "repo": "neorg-extras",
-        "rev": "3cd7943efe5e18710acf31f5a0bc4590f5240618",
+        "rev": "95138cf6079cf40f9990ef0f8866179bc825578e",
         "type": "github"
       },
       "original": {

@@ -1,5 +1,72 @@
 local M = {}
 
+local get_author = function ()
+    local neorg = require("neorg.core")
+    local dirman = neorg.modules.get_module("core.dirman")
+    local workspace_path = dirman.get_current_workspace()[2]
+    local neorg_settings_file = workspace_path .. "/.neorg.json"
+    if vim.fn.filereadable(neorg_settings_file) == 1 then
+        local content = vim.fn.json_decode(vim.fn.readfile(neorg_settings_file))
+        local author = content["author"]
+        if author ~= nil then
+            return author
+        end
+    end
+    return "darkkronicle"
+end
+
+-- https://github.com/nvim-neorg/neorg/blob/85f15f033d8c56366ac1e6ae93c940db8ad067ca/lua/neorg/modules/core/esupports/metagen/module.lua#L28C1-L44C4
+local function get_timestamp()
+    -- generate a ISO-8601 timestamp
+    -- example: 2023-09-05T09:09:11-0500
+    --
+    return os.date("%Y-%m-%dT%H:%M:%S")
+end
+
+local metagen_template = {
+    -- The title field generates a title for the file based on the filename.
+    {
+        "title",
+        function()
+            return vim.fn.expand("%:p:t:r")
+        end,
+    },
+
+    -- The description field is always kept empty for the user to fill in.
+    { "description", "" },
+
+    -- The authors field is taken from config or autopopulated by querying the current user's system username.
+    {
+        "authors",
+        get_author,
+    },
+
+    -- The categories field is always kept empty for the user to fill in.
+    { "categories", "" },
+
+    -- The created field is populated with the current date as returned by `os.date`.
+    {
+        "created",
+        get_timestamp,
+    },
+
+    -- When creating fresh, new metadata, the updated field is populated the same way
+    -- as the `created` date.
+    {
+        "updated",
+        get_timestamp,
+    },
+
+    -- The version field determines which Norg version was used when
+    -- the file was created.
+    {
+        "version",
+        function()
+            return require("neorg").config.norg_version
+        end,
+    },
+}
+
 M.opts = {
     load = {
         ["core.defaults"] = {}, -- Load all the default modules
@@ -69,6 +136,7 @@ M.opts = {
         ["core.esupports.metagen"] = {
             config = {
                 type = "auto",
+                template = metagen_template,
             },
         },
         ["core.qol.todo_items"] = {},
@@ -87,8 +155,7 @@ M.opts = {
                 },
                 index = "index.norg",
                 autodetect = true,
-                [[ -- autochdir = false, ]],
-                default_workspace = "compendium",
+                autochdir = false,
             },
         },
 
@@ -112,7 +179,7 @@ M.opts = {
         ["external.roam"] = {},
         ["external.many-mans"] = {
             config = {
-                treesitter_fold = false
+                treesitter_fold = true
             }
         }
     }
