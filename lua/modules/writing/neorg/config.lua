@@ -99,6 +99,13 @@ M.opts = {
                             highlight = "@neorg.delimiters.horizontal_line",
                         },
                     },
+                    -- Taken from markview
+                    list = {
+                        icons = { "󰧞", "", "", "", "", "" }
+                    },
+                    heading = {
+                        icons = { "󰼏", "󰼐", "󰼑", "󰼒", "󰼓", "󰼔" },
+                    },
                     code_block = {
                         -- If true will only dim the content of the code block (without the
                         -- `@code` and `@end` lines), not the entirety of the code block itself.

@@ -125,11 +125,11 @@
         "norg-meta": "norg-meta"
       },
       "locked": {
-        "lastModified": 1724329696,
-        "narHash": "sha256-ApU5nAGdn2fqhaHW40krou3ccid4wD+3D3Cm1jvDBjU=",
+        "lastModified": 1724502392,
+        "narHash": "sha256-g8MlT40/Q8D2pwjRpjnueqA6EWRuKbWP3xym1D/zipk=",
         "owner": "nvim-neorg",
         "repo": "nixpkgs-neorg-overlay",
-        "rev": "2fdcebf1d738bdf95f431fcbe529d06f4f263651",
+        "rev": "935e178c7706c906199b083419229dc3096b991b",
         "type": "github"
       },
       "original": {
@@ -161,11 +161,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724151203,
-        "narHash": "sha256-3vN0fIdCRC9i8uQpkaHe/BHGgIsC74OVlWt1FvnqOCA=",
+        "lastModified": 1724645013,
+        "narHash": "sha256-U0RDcxSnletiegcd1wipOSJt29H4n6BcDZmg9x1bP1s=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "f57bcf909c6e7e277f1ea1ed7a69f58046e2a2a0",
+        "rev": "468eaa101b8ab43fefb327ffda89a8ebb78db444",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1724300212,
-        "narHash": "sha256-x3jl6OWTs+L9C7EtscuWZmGZWI0iSBDafvg3X7JMa1A=",
+        "lastModified": 1724395761,
+        "narHash": "sha256-zRkDV/nbrnp3Y8oCADf5ETl1sDrdmAW6/bBVJ8EbIdQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4de4818c1ffa76d57787af936e8a23648bda6be4",
+        "rev": "ae815cee91b417be55d43781eb4b73ae1ecc396c",
         "type": "github"
       },
       "original": {
@@ -410,11 +410,11 @@
     "plugins-neorg-extras": {
       "flake": false,
       "locked": {
-        "lastModified": 1724438826,
-        "narHash": "sha256-h3fcJJn6ARkcCiLYakoHWFv6JsSzvZwl7/RHBRQKv4o=",
+        "lastModified": 1724523709,
+        "narHash": "sha256-27A3Hn+EnXYl9qXCspT322QG5n6wvjQGW2/JOLGuJD4=",
         "owner": "juniorsundar",
         "repo": "neorg-extras",
-        "rev": "95138cf6079cf40f9990ef0f8866179bc825578e",
+        "rev": "c2f23aba732e50fd8226bbe6ef65df609e6d0c47",
         "type": "github"
       },
       "original": {
@@ -474,11 +474,11 @@
     "plugins-yazi-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1724303203,
-        "narHash": "sha256-K88rN1+4JptGRBbzIlnXwRgomWTXFBmyhuPDw/3Ikyc=",
+        "lastModified": 1724423528,
+        "narHash": "sha256-BQcrlfD/DpZvTJnU+AYUobF2HjzqI7tg9T0cnjxy1Hw=",
         "owner": "mikavilpas",
         "repo": "yazi.nvim",
-        "rev": "82af950bbb0da7da145c985501ad035a3b664673",
+        "rev": "df7c476ee9a844603773f662de7c17e7994c378e",
         "type": "github"
       },
       "original": {
