@@ -16,4 +16,5 @@ with pkgs.neovimPlugins; [
   yazi-nvim
   tiny-code-action-nvim
   neorg-extras
+  neotest-dotnet
 ]

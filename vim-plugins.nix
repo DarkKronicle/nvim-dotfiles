@@ -68,7 +68,7 @@ with pkgs.vimPlugins; [
   nvim-dap-ui
   nvim-dap-virtual-text
   cmp-dap
-  neotest-dotnet
+  # neotest-dotnet
   neotest
   neotest-golang
   neotest-gradle

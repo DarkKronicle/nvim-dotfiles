@@ -91,6 +91,10 @@
       url = "github:juniorsundar/neorg-extras";
       flake = false;
     };
+    "plugins-neotest-dotnet" = {
+      url = "github:DarkKronicle/neotest-dotnet";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs

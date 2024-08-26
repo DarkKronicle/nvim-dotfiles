@@ -423,6 +423,22 @@
         "type": "github"
       }
     },
+    "plugins-neotest-dotnet": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724713697,
+        "narHash": "sha256-ox/rkQXEVqDvfNn16qi/wCCPwDhKHBEJeNSGCoyMLRA=",
+        "owner": "DarkKronicle",
+        "repo": "neotest-dotnet",
+        "rev": "28adee9582c918c7db4aa977f2b2323ec2ef5545",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DarkKronicle",
+        "repo": "neotest-dotnet",
+        "type": "github"
+      }
+    },
     "plugins-scrollEOF-nvim": {
       "flake": false,
       "locked": {
@@ -503,6 +519,7 @@
         "plugins-mini-hipatterns": "plugins-mini-hipatterns",
         "plugins-mini-surround": "plugins-mini-surround",
         "plugins-neorg-extras": "plugins-neorg-extras",
+        "plugins-neotest-dotnet": "plugins-neotest-dotnet",
         "plugins-scrollEOF-nvim": "plugins-scrollEOF-nvim",
         "plugins-telescope-egrepify-nvim": "plugins-telescope-egrepify-nvim",
         "plugins-tiny-code-action-nvim": "plugins-tiny-code-action-nvim",
