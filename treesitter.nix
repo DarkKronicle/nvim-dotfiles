@@ -29,6 +29,5 @@
     p.regex 
     p.mermaid 
     p.kdl 
-    p.norg
     p.lua
   ] ++ custom-treesitter))]

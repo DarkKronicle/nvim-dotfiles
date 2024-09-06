@@ -41,6 +41,11 @@ debug({
             command = 'netcoredbg',
             args = {'--interpreter=vscode'}
         }
+        dap.adapters.netcoredbg = {
+            type = 'executable',
+            command = 'netcoredbg',
+            args = {'--interpreter=vscode'}
+        }
         vim.g.dotnet_build_project = function()
             local default_path = vim.fn.getcwd() .. '/'
             if vim.g['dotnet_last_proj_path'] ~= nil then
