@@ -1,0 +1,15 @@
+diff --git a/crates/mipsy/src/main.rs b/crates/mipsy/src/main.rs
+index 4a82413..ffe14d9 100644
+--- a/crates/mipsy/src/main.rs
++++ b/crates/mipsy/src/main.rs
+@@ -566,8 +566,4 @@ fn compile_with_kernel(
+     Ok((iset, binary, runtime))
+ }
+ 
+-pub const VERSION: &str = concat!(
+-    env!("VERGEN_GIT_COMMIT_DATE"),
+-    " ",
+-    env!("VERGEN_GIT_SHA_SHORT")
+-);
++pub const VERSION: &str = "7edd349";
+

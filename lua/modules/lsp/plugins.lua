@@ -1,6 +1,8 @@
 local conf = require("modules.lsp.config")
 local lsp = require("core.pack").package
 
+-- TODO: move
+require("mipsy").setup()
 
 -- The 3 most important LSP plugins
 lsp({
@@ -68,6 +70,7 @@ lsp({
         automatic_installation = true,
         handlers = {
             function(name)
+                -- TODO: probably move this
                 -- Get the config, if it doesn't exist, don't set it up!
                 -- We want manual intervention here.
                 -- The "custom" config can just be `{}`

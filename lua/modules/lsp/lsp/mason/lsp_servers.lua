@@ -17,7 +17,27 @@ local util = require ('lspconfig.util')
 local servers = {
     lua_ls = true,
     texlab = true,
-    csharp_ls = true,
+    mipsy_editor_features = {
+        cmd = { "mipsy-lsp" }
+    },
+    omnisharp = {
+        cmd = { "OmniSharp" },
+
+        settings = {
+            FormattingOptions = {
+                EnableEditorConfigSupport = true,
+            },
+            RosylnExtensionsOptions = {
+                EnableAnalyzersSupport = true,
+                EnableImportCompletion = true,
+            },
+            ExcludeSearchPatterns = {
+                "**/.direnv/**/*",
+                "**/result/**/*",
+            };
+        },
+
+    },
     nixd = {
         cmd = { "nixd", "--" }
 

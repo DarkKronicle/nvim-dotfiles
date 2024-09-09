@@ -128,10 +128,15 @@
       # later on to access them.
     in { inherit dependencyOverlays; });
     inherit (system_resolved) dependencyOverlays;
+
     # see :help nixCats.flake.outputs.categories
     # and
     # :help nixCats.flake.outputs.categoryDefinitions.scheme
-    categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef: {
+    categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef: 
+      let 
+        mipsy = pkgs.callPackage ./nix/mipsy/mipsy.nix { };
+        mipsy-editor-features = pkgs.callPackage ./nix/mipsy/mipsy-editor-features.nix { };
+      in{
       # to define and use a new category, simply add a new list to a set here, 
       # and later, you will include categoryname = true; in the set you
       # provide when you build the package using this builder function.
@@ -164,21 +169,23 @@
           svls
           nushell
           imagemagick
-          csharp-ls
+          omnisharp-roslyn
           netcoredbg
+          mipsy
+          mipsy-editor-features # Also has script for lsp
         ];
       };
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
         customPlugins = with pkgs.nixCatsBuilds; [ ];
-        gitPlugins = (((import ./custom-plugins.nix) { pkgs = pkgs; }) ++ 
+        gitPlugins = (((import ./nix/custom-plugins.nix) { pkgs = pkgs; }) ++ 
           # Now you may be thinking, this isn't a plugin. You're right! But this needs to be in the runtime
           # path so that the queries and highlights are there!
-          (import ./treesitter-src.nix { inherit pkgs inputs; })); 
+          (import ./nix/treesitter-src.nix { inherit pkgs inputs; })); 
         general = (
-          ((import ./vim-plugins.nix) { pkgs = pkgs; }) 
-          ++ ((import ./treesitter.nix) { pkgs = pkgs; custom-treesitter = (import ./treesitter-grammars.nix { inherit pkgs inputs; }); })
+          ((import ./nix/vim-plugins.nix) { pkgs = pkgs; }) 
+          ++ ((import ./nix/treesitter.nix) { pkgs = pkgs; custom-treesitter = (import ./nix/treesitter-grammars.nix { inherit pkgs inputs; }); }) ++ [ mipsy-editor-features ]
         );
       };
 
