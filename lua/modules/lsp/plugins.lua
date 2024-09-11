@@ -2,7 +2,29 @@ local conf = require("modules.lsp.config")
 local lsp = require("core.pack").package
 
 -- TODO: move
-require("mipsy").setup()
+-- require("mipsy").setup()
+-- make a custom lspconfig
+local lspconfig = require('lspconfig')
+require('lspconfig.configs').mipsy_editor_features = {
+    default_config = {
+        cmd = { vim.fn.expand('~/src/mipsy-editor-features/vim-out/mipsy-lsp.sh') },
+        filetypes = { 'asm' },
+        root_dir = lspconfig.util.root_pattern('(*.asm)|(*.s)'),
+        single_file_support = true,
+        settings = {},
+    };
+}
+
+-- indentation config
+local indentGroup = vim.api.nvim_create_augroup("MipsIndentation", { clear = true })
+vim.api.nvim_create_autocmd(
+    { 'FileType' },
+    {
+        pattern = 'mips',
+        command = 'setlocal shiftwidth=8 tabstop=8 noexpandtab',
+        group = indentGroup
+    }
+)
 
 -- The 3 most important LSP plugins
 lsp({
