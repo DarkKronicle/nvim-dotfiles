@@ -100,7 +100,6 @@ debug({
 
         dap.configurations.cs = config
         dap.configurations.fsharp = config
-        dap.set_log_level('TRACE');
         dap.configurations.mips = {
             {
                 type = "mipsy",
