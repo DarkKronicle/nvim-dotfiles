@@ -16,7 +16,7 @@ with pkgs.vimPlugins; [
   cmp-emoji
   cmp-latex-symbols
   cmp-nvim-lsp
-  cmp-nvim-lsp-signature-help
+  # cmp-nvim-lsp-signature-help
   cmp-nvim-lua
   cmp-path
   cmp_luasnip

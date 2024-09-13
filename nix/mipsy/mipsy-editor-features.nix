@@ -127,7 +127,16 @@ in
       ${nodejs}/bin/node $out/lib/node_modules/xavc-mipsy-features/out/server.js --stdio
       EOT
 
+      cat <<EOT > $out/bin/mipsy-dap
+      #!/usr/bin/env bash
+
+      cd "\$(dirname "\$(realpath \$0)")"/..
+      exec "${nodejs}/bin/node" "$out/lib/node_modules/xavc-mipsy-features/out/mipsDebugAdapter.js" "\$@"
+      EOT
+
       chmod +x $out/bin/mipsy-lsp
+
+      chmod +x $out/bin/mipsy-dap
 
       cp vim-out/mipsy.lua $out/lua/mipsy.lua
       cp vim-out/mips.vim $out/syntax/mips.vim
