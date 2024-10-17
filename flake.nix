@@ -95,6 +95,10 @@
       url = "github:DarkKronicle/neotest-dotnet";
       flake = false;
     };
+    "plugins-kitty-scrollback-nvim" = {
+      url = "github:mikesmithgh/kitty-scrollback.nvim";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs

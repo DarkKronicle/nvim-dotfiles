@@ -53,6 +53,7 @@ function pack:boot_strap()
         pluginList[ [[mini.hipatterns]] ] = ""
         pluginList[ [[mini.surround]] ] = ""
         pluginList[ [[fold-cycle.nvim]] ] = ""
+        pluginList[ [[kitty-scrollback.nvim]] ] = ""
         pluginList[ [[nvim]] ] = ""
         pluginList[ [[scrollEOF.nvim]] ] = ""
         pluginList[ [[telescope-egrepify.nvim]] ] = ""

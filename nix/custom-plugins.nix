@@ -17,4 +17,5 @@ with pkgs.neovimPlugins; [
   tiny-code-action-nvim
   neorg-extras
   neotest-dotnet
+  kitty-scrollback-nvim
 ]

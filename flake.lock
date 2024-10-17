@@ -343,6 +343,22 @@
         "type": "github"
       }
     },
+    "plugins-kitty-scrollback-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727489810,
+        "narHash": "sha256-K2etlw89afHYR791keUF5+BBRybfp2mKaVYWigEXczs=",
+        "owner": "mikesmithgh",
+        "repo": "kitty-scrollback.nvim",
+        "rev": "d51725a6b71d65dd9df83ddc07903de2fb2736ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mikesmithgh",
+        "repo": "kitty-scrollback.nvim",
+        "type": "github"
+      }
+    },
     "plugins-luasnip-snippets": {
       "flake": false,
       "locked": {
@@ -514,6 +530,7 @@
         "plugins-cutlass-nvim": "plugins-cutlass-nvim",
         "plugins-fold-cycle-nvim": "plugins-fold-cycle-nvim",
         "plugins-heirline-components-nvim": "plugins-heirline-components-nvim",
+        "plugins-kitty-scrollback-nvim": "plugins-kitty-scrollback-nvim",
         "plugins-luasnip-snippets": "plugins-luasnip-snippets",
         "plugins-mini-animate": "plugins-mini-animate",
         "plugins-mini-hipatterns": "plugins-mini-hipatterns",
