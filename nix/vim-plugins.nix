@@ -75,4 +75,5 @@ with pkgs.vimPlugins; [
   neotest-java
   neotest-python
   nvim-coverage
+  lsp_lines-nvim
 ]
