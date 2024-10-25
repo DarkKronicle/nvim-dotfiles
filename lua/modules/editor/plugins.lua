@@ -69,6 +69,9 @@ editor({
         system_clipboard = {
             sync_with_ring = false,
         },
+        ring = {
+            storage = "memory",
+        },
         highlight = {
             on_put = true,
             on_yank = true,

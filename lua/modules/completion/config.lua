@@ -10,6 +10,7 @@ function M.sources() return {
         { name = 'path' },
         { name = 'luasnip' },
         { name = 'codeium' },
+        { name = 'yanky' },
     }
 end
 
@@ -50,6 +51,12 @@ function M.cmp()
     vim.g["codeium_enabled"] = false
 
     local function is_codeium_enabled()
+        if vim.b["private_mode"] == false then
+            return false
+        end
+        if vim.g["private_mode"] == false then
+            return false
+        end
         local enabled = vim.b["codeium_enabled"]
         if enabled == nil then
             enabled = vim.g["codeium_enabled"]

@@ -22,6 +22,7 @@ settings({
                         { name = "emoji", group_index = 2 },
                         { name = "latex_symbols", group_index = 2 },
                         { name = 'codeium', priority = 1 },
+                        { name = 'yanky', priority = 1 },
                     },
                 })
             end,

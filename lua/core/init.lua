@@ -66,6 +66,7 @@ local load_core = function ()
 
     require("core.options")
     require("core.commands")
+    require("core.private")
     require("core.autocommands")
 
     require("core.pack"):boot_strap()

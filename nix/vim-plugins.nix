@@ -51,6 +51,7 @@ with pkgs.vimPlugins; [
   undotree
   vimtex
   yanky-nvim
+  cmp_yanky
   vim-pencil
   zen-mode-nvim
   inc-rename-nvim
