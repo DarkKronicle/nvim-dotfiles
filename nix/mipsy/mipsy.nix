@@ -17,6 +17,6 @@
   # Updates to work with 1.80
   cargoPatches = [ ./mipsy.patch ./mipsy-build.patch ./mipsy-version.patch ./mipsy-git.patch ];
 
-  cargoHash = "sha256-NW0aboaY0mV5zKqOZwAo//zHQ8Dk0qvKxnRyr6YkdDE=";
+  cargoHash = "sha256-qDgaOANuobkHhH1iiLYzBO9uk48DC20nhRkytgDgvHc=";
 
 }

@@ -46,10 +46,10 @@ let
   ]);
 
   wasmModule = let
-    wasm-bindgen-83 = wasm-bindgen-cli.override {
-      version = "0.2.83";
-      hash = "sha256-+PWxeRL5MkIfJtfN3/DjaDlqRgBgWZMa6dBt1Q+lpd0=";
-      cargoHash = "sha256-GwLeA6xLt7I+NzRaqjwVpt1pzRex1/snq30DPv4FR+g=";
+    wasm-bindgen-95 = wasm-bindgen-cli.override {
+      version = "0.2.95";
+      hash = "sha256-prMIreQeAcbJ8/g3+pMp1Wp9H5u+xLqxRxL+34hICss=";
+      cargoHash = "sha256-6iMebkD7FQvixlmghGGIvpdGwFNLfnUcFke/Rg8nPK4=";
     };
     in
     rustPlatform.buildRustPackage {
@@ -58,13 +58,16 @@ let
 
       src = src;
 
+
+      cargoPatches = [ ./mipsy-editor-lock.patch ];
+
       nativeBuildInputs = [ 
         wasm-pack 
-        wasm-bindgen-83
+        wasm-bindgen-95
         rustc.llvmPackages.lld
       ];
 
-      cargoHash = "sha256-bMWyvjvY5whGYbpYlffpKLszf4VcA8W80pm/iiOPZvk=";
+      cargoHash = "sha256-xtikxKhFhdaLifdj4HTCHPYZ17jCXhENr2vESTdPNfM=";
 
       buildPhase = ''
       runHook preBuild
