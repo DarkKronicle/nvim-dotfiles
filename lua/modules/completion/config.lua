@@ -87,7 +87,7 @@ function M.cmp()
         noremap = true
     })
 
-    codeium.setup()
+    codeium.setup({})
     local cmp = require('cmp')
     cmp.setup({
         sources = M.sources(),

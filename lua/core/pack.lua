@@ -31,17 +31,17 @@ end
 
 
 function pack:boot_strap()
-    local lazy = require("core.lazyCat")
     local cat = require("core.nixCatsUtils")
     cat.setup { non_nix_value = true };
     local pluginList = nil
     local nixLazyPath = nil
 
     if cat.isNixCats then
-
         local allPlugins = require("nixCats").pawsible.allPlugins
         -- it is called pluginList because we only need to pass in the names
-        pluginList = lazy.mergePluginTables( allPlugins.start, allPlugins.opt)
+        -- this list literally just tells lazy.nvim not to download the plugins in the list.
+        pluginList = require('nixCatsUtils.lazyCat').mergePluginTables( allPlugins.start, allPlugins.opt)
+
         -- it wasnt detecting these because the names are slightly different.
         -- when that happens, add them to the list, then also specify name in the lazySpec
         pluginList[ [[Comment.nvim]] ] = ""
@@ -77,7 +77,7 @@ function pack:boot_strap()
     }
 
     self:load_modules_packages()
-    lazy.setup(pluginList, nixLazyPath, self.repos, opts)
+    require("nixCatsUtils.lazyCat").setup(pluginList, nixLazyPath, self.repos, opts)
 
     for k, v in pairs(self) do
         if type(v) ~= "function" then

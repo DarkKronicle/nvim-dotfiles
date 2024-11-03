@@ -1,5 +1,3 @@
--- https://github.com/BirdeeHub/nixCats-nvim/blob/main/nix/templates/kickstart-nvim/lua/nixCatsUtils/lazyCat.lua
--- MIT License
 local M = {}
 
 function M.mergePluginTables(table1, table2)
@@ -44,12 +42,14 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
     return lazypath
   end
 
-  local ok, nixCats = pcall(require,'nixCats')
+  local isNixCats = vim.g[ [[nixCats-special-rtp-entry-nixCats]] ] ~= nil
   local lazypath
-  if not ok then
+  if not isNixCats then
     -- No nixCats? Not nix. Do it normally
     lazypath = regularLazyDownload()
+    vim.opt.rtp:prepend(lazypath)
   else
+    local nixCats = require('nixCats')
     -- Else, its nix, so we wrap lazy with a few extra config options
     lazypath = nixLazyPath
     -- and also we probably dont have to download lazy either
@@ -70,7 +70,8 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
       oldPath = lazyCFG.dev.path
     end
 
-    local myNeovimPackages = nixCats.vimPackDir .. "/pack/myNeovimPackages"
+    -- TODO: wtf, this isn't working???
+    local myNeovimPackages = (vim.g[ [[nixCats-special-rtp-entry-vimPackDir]] ]) .. "/pack/myNeovimPackages"
 
     local newLazyOpts = {
       performance = {
@@ -104,9 +105,20 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
       }
     }
     lazyCFG = vim.tbl_deep_extend("force", lazyCFG or {}, newLazyOpts)
+    -- do the reset we disabled without removing important stuff
+    local cfgdir = nixCats.configDir
+    vim.opt.rtp = {
+      cfgdir,
+      nixCats.nixCatsPath,
+      nixCats.pawsible.allPlugins.ts_grammar_path,
+      vim.fn.stdpath("data") .. "/site",
+      lazypath,
+      vim.env.VIMRUNTIME,
+      vim.fn.fnamemodify(vim.v.progpath, ":p:h:h") .. "/lib/nvim",
+      cfgdir .. "/after",
+    }
   end
 
-  vim.opt.rtp:prepend(lazypath)
   require('lazy').setup(lazySpecs, lazyCFG)
 end
 

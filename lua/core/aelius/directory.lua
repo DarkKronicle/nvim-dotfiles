@@ -1,7 +1,7 @@
 local home = os.getenv("HOME")
 
 function aelius.get_config_path()
-    return require('nixCats').get([[nixCats_store_config_location]])
+    return require('nixCats').get([[nixCats_config_location]])
     -- return home .. "/.config/nvim"
 end
 
