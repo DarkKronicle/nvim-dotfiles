@@ -7,7 +7,9 @@
 [
   (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ 
     p.c 
+    p.cmake
     p.c_sharp 
+    p.beancount 
     p.java 
     p.bash 
     p.json 
@@ -16,6 +18,7 @@
     p.ini
     p.html
     p.latex 
+    p.bibtex 
     p.python 
     p.markdown 
     p.ron 

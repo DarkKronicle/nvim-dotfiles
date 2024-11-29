@@ -46,10 +46,6 @@ debug({
             command = 'netcoredbg',
             args = {'--interpreter=vscode'}
         }
-        dap.adapters.mipsy = {
-            type = 'executable',
-            command = 'mipsy-dap',
-        }
         vim.g.dotnet_build_project = function()
             local default_path = vim.fn.getcwd() .. '/'
             if vim.g['dotnet_last_proj_path'] ~= nil then
@@ -100,15 +96,6 @@ debug({
 
         dap.configurations.cs = config
         dap.configurations.fsharp = config
-        dap.configurations.mips = {
-            {
-                type = "mipsy",
-                name = "mipsy launch file",
-                request = "launch",
-                program = { path = "${file}" },
-            }
-
-        }
     end
 })
 

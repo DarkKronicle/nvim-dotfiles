@@ -113,6 +113,12 @@
     # as that will have your system values
     extra_pkg_config = {
       allowUnfree = true;
+      # TODO: remove until omnisharp is fixed
+      permittedInsecurePackages = [
+        "dotnet-core-combined"
+        "dotnet-sdk-6.0.428"
+        "dotnet-sdk-wrapped-6.0.428"
+      ];
     };
 
     system_resolved = forEachSystem (system: let
@@ -137,10 +143,7 @@
     # and
     # :help nixCats.flake.outputs.categoryDefinitions.scheme
     categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef: 
-      let 
-        mipsy = pkgs.callPackage ./nix/mipsy/mipsy.nix { };
-        mipsy-editor-features = pkgs.callPackage ./nix/mipsy/mipsy-editor-features.nix { };
-      in{
+      {
       # to define and use a new category, simply add a new list to a set here, 
       # and later, you will include categoryname = true; in the set you
       # provide when you build the package using this builder function.
@@ -175,8 +178,9 @@
           imagemagick
           omnisharp-roslyn
           netcoredbg
-          mipsy
-          mipsy-editor-features # Also has script for lsp
+          basedpyright
+          beancount-language-server
+          beancount
         ];
       };
 
@@ -189,7 +193,7 @@
           (import ./nix/treesitter-src.nix { inherit pkgs inputs; })); 
         general = (
           ((import ./nix/vim-plugins.nix) { pkgs = pkgs; }) 
-          ++ ((import ./nix/treesitter.nix) { pkgs = pkgs; custom-treesitter = (import ./nix/treesitter-grammars.nix { inherit pkgs inputs; }); }) ++ [ mipsy-editor-features ]
+          ++ ((import ./nix/treesitter.nix) { pkgs = pkgs; custom-treesitter = (import ./nix/treesitter-grammars.nix { inherit pkgs inputs; }); })
         );
       };
 

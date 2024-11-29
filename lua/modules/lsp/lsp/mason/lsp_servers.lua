@@ -17,9 +17,8 @@ local util = require ('lspconfig.util')
 local servers = {
     lua_ls = true,
     texlab = true,
-    mipsy_editor_features = {
-        cmd = { "mipsy-lsp" }
-    },
+    basedpyright = true,
+    beancount = true,
     omnisharp = {
         cmd = { "OmniSharp" },
 

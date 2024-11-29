@@ -1,8 +1,6 @@
 local conf = require("modules.lsp.config")
 local lsp = require("core.pack").package
 
-require("mipsy").setup()
-
 -- The 3 most important LSP plugins
 lsp({
     "neovim/nvim-lspconfig",

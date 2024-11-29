@@ -35,6 +35,13 @@ local add_filetypes = function ()
     })
     vim.filetype.add({
         extension = {
+            beancount = "beancount",
+            bean = "beancount",
+            bc = "beancount",
+        },
+    })
+    vim.filetype.add({
+        extension = {
             kbd = "kanata",
         },
     })

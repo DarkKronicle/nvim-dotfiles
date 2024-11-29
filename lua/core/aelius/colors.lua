@@ -62,8 +62,8 @@ colors.palettes = {
         surface2 = "#525252",
         surface1 = "#393939",
         surface0 = "#262626",
-        -- base = "#161616",
-        base = "#000000",
+        base = "#16161D",
+        -- base = "#000000",
         mantle = "#0b0b0b",
         crust = "#000000"
     },
