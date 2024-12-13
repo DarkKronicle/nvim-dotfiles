@@ -4,6 +4,7 @@ local editor = require("core.pack").package
 
 editor({
     'gbprod/cutlass.nvim',
+    name = "cutlass-nvim",
     lazy = false,
     config = function ()
       require("cutlass").setup({})
@@ -101,6 +102,7 @@ editor({
 
 editor({
     'Aasim-A/scrollEOF.nvim',
+    name = "scrollEOF-nvim",
     event = { 'CursorMoved', 'WinScrolled' },
     config = function ()
       require("scrollEOF").setup()
@@ -157,6 +159,7 @@ editor({
 -- Woah this is awesome
 editor({
     'jghauser/fold-cycle.nvim',
+    name = "fold-cycle-nvim",
     config = function ()
         require('fold-cycle').setup({})
     end,
@@ -250,6 +253,10 @@ editor({
 
 editor({
     'echasnovski/mini.surround',
+    name = "mini-surround",
+    config = function (opts)
+        require("mini.surround").setup(opts)
+    end,
     opts = {
         mappings = {
             -- Keymappings are a hydra!

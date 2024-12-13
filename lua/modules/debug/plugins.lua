@@ -243,7 +243,6 @@ debug({
     dependencies = {
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
-        "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
         -- TODO: dotnet doesn't work with other adapters
         -- "fredrikaverpil/neotest-golang",

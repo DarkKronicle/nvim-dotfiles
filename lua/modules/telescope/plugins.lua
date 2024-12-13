@@ -14,6 +14,7 @@ ts({
         { 'nvim-lua/plenary.nvim', lazy = true },
         {
             "fdschmidt93/telescope-egrepify.nvim",
+            name = "telescope-egrepify-nvim",
             dependencies = { "nvim-lua/plenary.nvim" },
             lazy = true,
         },

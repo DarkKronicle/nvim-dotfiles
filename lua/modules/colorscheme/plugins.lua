@@ -3,6 +3,7 @@ local cs = require("core.pack").package
 
 cs({
     "catppuccin/nvim",
+    name = "catppuccin-nvim",
     priority = 1500,
     config = conf.catppuccin,
 })

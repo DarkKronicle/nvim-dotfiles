@@ -25,6 +25,7 @@ lsp({
 
 lsp({
     "rachartier/tiny-code-action.nvim",
+    name = "tiny-code-action-nvim",
     event = "LspAttach",
     config = function () 
         require('tiny-code-action').setup({

@@ -24,6 +24,7 @@ movement({
 
 movement({
     "rainbowhxch/accelerated-jk.nvim",
+    name = "accelerated-jk-nvim",
     keys = {
         {
             -- TODO: This will change with neorg and stuff so should do that

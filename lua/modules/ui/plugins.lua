@@ -20,6 +20,7 @@ ui({
 
 ui({
     'mikavilpas/yazi.nvim',
+    name = "yazi-nvim",
     event = 'VeryLazy',
     config = conf.yazi,
     keys = {
@@ -43,7 +44,7 @@ ui({
     "rebelot/heirline.nvim",
     event = "BufEnter",
     dependencies = { 
-        "Zeioth/heirline-components.nvim",
+        { "Zeioth/heirline-components.nvim", name = "heirline-components-nvim" },
         "lewis6991/gitsigns.nvim",
     },
     config = conf.heirline,
@@ -184,6 +185,7 @@ ui({
 
 ui({
     "echasnovski/mini.hipatterns",
+    name = "mini-hipatterns",
     config = function()
         local hipatterns = require('mini.hipatterns')
         hipatterns.setup({
@@ -253,11 +255,13 @@ ui({
 
 ui({
     'echasnovski/mini.animate',
+    name = "mini-animate",
     config = conf.animate,
 })
 
 ui({
     'mikesmithgh/kitty-scrollback.nvim',
+    name = "kitty-scrollback-nvim",
     enabled = true,
     lazy = true,
     cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
