@@ -20,14 +20,6 @@ completion({
         { "chrisgrieser/cmp_yanky" },
         { "saadparwaiz1/cmp_luasnip", lazy = true },
         { "kdheepak/cmp-latex-symbols", lazy = true },
-        {
-            "doxnit/cmp-luasnip-choice",
-            config = function()
-                require("cmp_luasnip_choice").setup({
-                    auto_open = true, -- Automatically open nvim-cmp on choice node (default: true)
-                })
-            end,
-        },
     },
     config = conf.cmp
 })

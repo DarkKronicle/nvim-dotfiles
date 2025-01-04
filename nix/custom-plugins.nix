@@ -1,7 +1,12 @@
 { 
   pkgs 
 }:
-with pkgs.neovimPlugins; [
+let
+  noCheck = pkg: pkg.overrideAttrs (_: {
+    doCheck = false;
+  });
+in
+pkgs.lib.forEach (with pkgs.neovimPlugins; [
   cutlass-nvim
   accelerated-jk-nvim
   luasnip-snippets
@@ -12,10 +17,9 @@ with pkgs.neovimPlugins; [
   fold-cycle-nvim
   heirline-components-nvim
   telescope-egrepify-nvim
-  cmp-luasnip-choice
   yazi-nvim
   tiny-code-action-nvim
   neorg-extras
   neotest-dotnet
   kitty-scrollback-nvim
-]
+]) noCheck

@@ -23,7 +23,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-    nixCats.inputs.nixpkgs.follows = "nixpkgs";
     
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,10 +36,6 @@
 
     "plugins-cutlass-nvim" = {
       url = "github:gbprod/cutlass.nvim";
-      flake = false;
-    };
-    "plugins-cmp-luasnip-choice" = {
-      url = "github:doxnit/cmp-luasnip-choice";
       flake = false;
     };
     "plugins-accelerated-jk-nvim" = {
