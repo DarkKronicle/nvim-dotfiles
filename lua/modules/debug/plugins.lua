@@ -6,7 +6,6 @@ debug({
     lazy = true,
     dependencies = { 
         "theHamsta/nvim-dap-virtual-text",
-        "rcarriga/cmp-dap",
         "rcarriga/nvim-dap-ui"
     },
     keys = {
@@ -209,18 +208,6 @@ debug({
         })
     end
 })
-
-debug({
-    "rcarriga/cmp-dap",
-    config = function()
-        require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-            sources = {
-                { name = "dap" },
-            },
-        })
-    end
-})
-
 
 debug({
     "nvim-neotest/neotest",

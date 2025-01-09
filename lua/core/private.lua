@@ -1,7 +1,6 @@
 -- Inspired by https://github.com/skeletony007/private-mode.nvim/
 -- https://vi.stackexchange.com/questions/6177/the-simplest-way-to-start-vim-in-private-mode
 local enable_private = function (vim_var, vim_opt)
-    vim_var["codeium_enabled"] = false
     vim_var["private_mode"] = true
 
     vim_opt.history = 0

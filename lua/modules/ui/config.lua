@@ -130,7 +130,7 @@ function config.animate()
 
     animate.setup({
         cursor = {
-            enable = true,
+            enable = false,
             timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
             path = animate.gen_path.line({
                 predicate = function(destination)

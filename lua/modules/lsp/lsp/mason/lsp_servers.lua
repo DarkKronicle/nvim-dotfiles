@@ -1,7 +1,7 @@
 local function attach_capabilities(config)
-    local cmp_nvim_lsp = require('cmp_nvim_lsp')
+    local blink_lsp = require('blink.cmp')
     local caps = vim.lsp.protocol.make_client_capabilities()
-    caps = cmp_nvim_lsp.default_capabilities(caps)
+    caps = blink_lsp.get_lsp_capabilities(caps)
     caps.textDocument.completion.completionItem.snippetSupport = true
     caps.textDocument.foldingRange = { dynamicRegistration = false, rangeLimit = 1000, lineFoldingOnly = true }
     attach_config = {

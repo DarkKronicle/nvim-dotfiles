@@ -1,5 +1,4 @@
 -- TODO:
--- cmp sometimes attacks me with about 400 options
 -- nvim-scissors (custom snippets)
 -- snippet keybinds need to be refined, should be able to use defaults
 
@@ -8,20 +7,48 @@ local conf = require("modules.completion.config")
 local completion = require("core.pack").package
 
 completion({
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
     dependencies = {
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "hrsh7th/cmp-nvim-lua" },
-        -- { "hrsh7th/cmp-nvim-lsp-signature-help" },
-        { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-path" },
         { "hrsh7th/cmp-emoji" },
-        { "hrsh7th/cmp-cmdline" },
         { "chrisgrieser/cmp_yanky" },
-        { "saadparwaiz1/cmp_luasnip", lazy = true },
         { "kdheepak/cmp-latex-symbols", lazy = true },
     },
-    config = conf.cmp
+    opts = {
+        keymap = { preset = "super-tab" },
+        sources = {
+            default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'yanky', 'latex', 'ripgrep'},
+            providers = {
+                emoji = {
+                    name = "emoji",
+                    score_offset = -3,
+                    module = 'blink.compat.source',
+                },
+                yanky = {
+                    name = "cmp_yanky",
+                    module = 'blink.compat.source',
+                },
+                latex = {
+                    name = "lua-latex-symbols",
+                    score_offset = -3,
+                    module = 'blink.compat.source',
+                },
+                ripgrep = {
+                    module = "blink-ripgrep",
+                    name = "Ripgrep",
+                    score_offset = -1,
+                }
+            }
+        }
+    },
+    opts_extend = { "sources.default" }
+})
+
+completion({
+    'saghen/blink.compat',
+})
+
+completion({
+    "mikavilpas/blink-ripgrep.nvim"
 })
 
 completion({
@@ -73,16 +100,4 @@ completion({
             space = 'balance', -- set on both sides equally
         }
     }
-})
-
-completion({
-    "Exafunction/codeium.nvim",
-    event = 'VeryLazy',
-    -- Handled by nix now
-    enabled = false,
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
-    },
-    opts = {},
 })

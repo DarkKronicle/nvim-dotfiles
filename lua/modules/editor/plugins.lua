@@ -66,6 +66,7 @@ editor({
             desc = 'Next clipboard entry',
         },
     },
+    lazy = false,
     opts = {
         system_clipboard = {
             sync_with_ring = false,

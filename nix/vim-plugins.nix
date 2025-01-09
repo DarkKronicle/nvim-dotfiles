@@ -3,23 +3,20 @@
 }:
 with pkgs.vimPlugins; [
   lazy-nvim
-  codeium-nvim
-  nvim-cmp
   nvim-hlslens
   nvim-lspconfig
   nvim-notify
   nvim-spider
   nvim-ufo
   nvim-web-devicons
-  cmp-buffer
-  cmp-cmdline
+  
+  blink-cmp
+  blink-compat
+  blink-ripgrep-nvim
+
   cmp-emoji
   cmp-latex-symbols
-  cmp-nvim-lsp
   # cmp-nvim-lsp-signature-help
-  cmp-nvim-lua
-  cmp-path
-  cmp_luasnip
   dressing-nvim
   flash-nvim
   friendly-snippets
@@ -68,7 +65,6 @@ with pkgs.vimPlugins; [
   nvim-dap
   nvim-dap-ui
   nvim-dap-virtual-text
-  cmp-dap
   # neotest-dotnet
   neotest
   neotest-golang
