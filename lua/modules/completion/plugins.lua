@@ -12,9 +12,11 @@ completion({
         { "hrsh7th/cmp-emoji" },
         { "chrisgrieser/cmp_yanky" },
         { "kdheepak/cmp-latex-symbols", lazy = true },
+        { "L3MON4D3/LuaSnip" },
     },
     opts = {
         keymap = { preset = "super-tab" },
+        snippets = { preset = 'luasnip' },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'yanky', 'latex', 'ripgrep'},
             providers = {

@@ -19,6 +19,10 @@ writing({
     config = require("modules.writing.neorg.config").config,
 })
 
+writing({
+    "benlubas/neorg-interim-ls"
+})
+
 -- writing({
     -- "vhyrro/luarocks.nvim",
     -- priority = 2000, -- We'd like this plugin to load first out of the rest
@@ -33,19 +37,6 @@ writing({
 writing({
     'shortcuts/no-neck-pain.nvim',
     cmd = { 'NoNeckPain' },
-})
-
-writing({
-    'preservim/vim-pencil',
-    cmd = {
-        'Pencil', 'NoPencil', 'PencilOff',
-        'TogglePencil', 'PencilToggle',
-        'SoftPencil', 'PencilSoft',
-        'HardPencil', 'PencilHard'
-    },
-    init = function()
-        vim.g["pencil#wrapModeDefault"] = "soft"
-    end,
 })
 
 writing({

@@ -88,7 +88,7 @@ editor({
     dependencies = "nvim-lua/plenary.nvim",
     keys = {
         {
-            '<leader>u', 
+            '<leader>u',
             function ()
                 require('undotree').toggle()
             end,
@@ -236,40 +236,35 @@ editor({
 })
 
 editor({
-    'Wansmer/treesj',
-    keys = {
-        {
-            "<leader>m",
-            "<cmd>lua require('treesj').toggle()<cr>",
-            desc = "Toggle join tree",
-        },
-    },
-    config = function ()
-        require('treesj').setup({
-            use_default_keymaps = false,
-        })
-    end
-
-})
-
-editor({
     'echasnovski/mini.surround',
     name = "mini-surround",
     config = function (opts)
-        require("mini.surround").setup(opts)
+        require("mini.surround").setup({
+            mappings = {
+                add = '<leader>sa',
+                delete = '<leader>sd',
+                find = '<leader>sf',
+                find_left = '<leader>sF',
+                highlight = '<leader>sh',
+                replace = '<leader>sr',
+                update_n_lines = '<leader>sn',
+            },
+
+        })
     end,
+})
+
+editor({
+    'danymat/neogen',
+    cmd = "Neogen",
     opts = {
-        mappings = {
-            -- Keymappings are a hydra!
-            add = '',
-            delete = '',
-            find = '',
-            find_left = '',
-            highlight = '',
-            replace = '',
-            update_n_lines = '',
-            suffix_last = '',
-            suffix_next = '',
+        snippet_engine = "luasnip"
+    },
+    keys = {
+        {
+            "<leader>yg",
+            "<cmd>Neogen<cr>",
+            desc = "Create comment",
         },
-    }
+    },
 })

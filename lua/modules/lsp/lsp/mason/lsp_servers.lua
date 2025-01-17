@@ -39,7 +39,13 @@ local servers = {
     },
     nixd = {
         cmd = { "nixd", "--" }
-
+    },
+    ccls = {
+        root_dir = function(fname)
+            return util.root_pattern('compile_commands.json', '.ccls')(fname)
+                or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+                or vim.fs.dirname(fname)
+        end,
     },
     nushell = {
         cmd = { "nu", "--lsp" },

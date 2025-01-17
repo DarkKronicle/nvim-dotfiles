@@ -30,6 +30,7 @@ function config.catppuccin()
             semantic_tokens = true,
             dap = true,
             dap_ui = true,
+            diffview = true,
         },
         styles = colors.catppuccin_styles,
         highlight_overrides = {

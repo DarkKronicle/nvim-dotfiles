@@ -70,10 +70,6 @@
       url = "github:Zeioth/heirline-components.nvim";
       flake = false;
     };
-    "plugins-telescope-egrepify-nvim" = {
-      url = "github:fdschmidt93/telescope-egrepify.nvim";
-      flake = false;
-    };
     "plugins-yazi-nvim" = {
       url = "github:mikavilpas/yazi.nvim";
       flake = false;
@@ -92,6 +88,14 @@
     };
     "plugins-kitty-scrollback-nvim" = {
       url = "github:mikesmithgh/kitty-scrollback.nvim";
+      flake = false;
+    };
+    "plugins-neorg-interim-ls" = {
+      url = "github:benlubas/neorg-interim-ls";
+      flake = false;
+    };
+    "plugins-undotree" = {
+      url = "github:jiaoshijie/undotree";
       flake = false;
     };
   };
@@ -167,6 +171,7 @@
           nix-doc 
           lua-language-server 
           nixd
+          ccls
           texlab
           svls
           nushell

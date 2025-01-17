@@ -9,18 +9,6 @@ lsp({
         local lspconf = require("modules.lsp.lsp.mason.lsp_servers")
         lspconf()
     end,
-    dependencies = {
-        {
-            "folke/neodev.nvim",
-            ft = "lua",
-            opts = { library = { plugins = { "nvim-dap-ui" } } },
-        },
-        {
-            "folke/neoconf.nvim",
-            cmd = { "Neoconf" },
-            opts = { local_settings = ".nvim.json", global_settings = "nvim.json" },
-        },
-    },
 })
 
 lsp({

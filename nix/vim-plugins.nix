@@ -2,75 +2,79 @@
   pkgs
 }:
 with pkgs.vimPlugins; [
-  lazy-nvim
-  nvim-hlslens
-  nvim-lspconfig
-  nvim-notify
-  nvim-spider
-  nvim-ufo
-  nvim-web-devicons
+  lazy-nvim # package manager
+  nvim-hlslens # highlight search
+  nvim-lspconfig # lsp config ofc
+  nvim-notify # make notifications look good
+  nvim-spider # movement commands make a bit more sense
+  nvim-ufo # fold, but pretty :3
+  nvim-web-devicons # icons
   
-  blink-cmp
-  blink-compat
-  blink-ripgrep-nvim
+  blink-cmp # fast completion
+  blink-compat # use my cmp with blink!
+  blink-ripgrep-nvim # ripgrep my files for blink
+  cmp-emoji # emojis for blink
+  cmp-latex-symbols # latex symbols for blink
 
-  cmp-emoji
-  cmp-latex-symbols
-  # cmp-nvim-lsp-signature-help
-  dressing-nvim
-  flash-nvim
-  friendly-snippets
-  gitsigns-nvim
-  heirline-nvim
-  highlight-undo-nvim
-  hydra-nvim
-  indent-blankline-nvim
-  luasnip
-  marks-nvim
-  neoconf-nvim
-  neodev-nvim
-  neorg
-  neorg-telescope
-  noice-nvim
-  nui-nvim
-  catppuccin-nvim
-  plenary-nvim
-  promise-async
-  rainbow-delimiters-nvim
-  telescope-nvim
-  telescope-fzf-native-nvim
-  todo-comments-nvim
-  ultimate-autopair-nvim
-  vim-illuminate
-  rustaceanvim
-  smart-splits-nvim
-  twilight-nvim
-  undotree
-  vimtex
-  yanky-nvim
-  cmp_yanky
-  vim-pencil
-  zen-mode-nvim
-  inc-rename-nvim
-  bufdelete-nvim
-  glance-nvim
-  neo-tree-nvim
-  which-key-nvim
-  true-zen-nvim
-  treesj
-  zk-nvim
+  dressing-nvim # make normal things pretty
+  flash-nvim # search, but fast
+  friendly-snippets # snippets and more snippets!
+  gitsigns-nvim # git signs on the sidebar!
+  heirline-nvim # bar, tabs, all that jazz
+  highlight-undo-nvim # highlight undo, duh
+  hydra-nvim # become the snake with keybinds
+  indent-blankline-nvim # look at all those tab lines
+  luasnip # snippets
+  marks-nvim # little mark icons in the gutter + more
+
+  neorg # super nice note format by people who care
+  neorg-telescope # 
+
+  noice-nvim # intercept and make built in stuff look a bit nicer
+  nui-nvim # dependency of neotree. UI library
+
+  catppuccin-nvim # very nice theme with tons of integrations all over the place
+  plenary-nvim # another dependency
+  promise-async # yet another dependency
+
+  rainbow-delimiters-nvim # make my brackets rainbow :3
+  telescope-nvim # menu thing
+  telescope-fzf-native-nvim # better telescope finding
+  todo-comments-nvim # make todo good again
+  ultimate-autopair-nvim # when I parenthesis make another
+  vim-illuminate # show me copies of the words I've highlighted
+  rustaceanvim # rust, more rust, and finally more rust
+  twilight-nvim # dim in zen
+  vimtex # latex for vim
+  yanky-nvim # some nice yank utils
+  cmp_yanky # show my yank in completion
+
+  inc-rename-nvim # rename
+  bufdelete-nvim # nicer deleting of buffers
+  glance-nvim # look at lsp definitions
+  neo-tree-nvim # tree!
+  which-key-nvim # show me my bindings
+
   image-nvim
   nabla-nvim
-  no-neck-pain-nvim
+
+  no-neck-pain-nvim # center windows in specific situations
+
   nvim-dap
   nvim-dap-ui
   nvim-dap-virtual-text
-  # neotest-dotnet
+
   neotest
   neotest-golang
   neotest-gradle
   neotest-java
   neotest-python
   nvim-coverage
+
   lsp_lines-nvim
+
+  trouble-nvim
+  gitlinker-nvim
+  neogen
+  diffview-nvim
 ]

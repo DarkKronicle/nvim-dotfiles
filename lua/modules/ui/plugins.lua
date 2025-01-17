@@ -219,14 +219,6 @@ ui({
     config = true,
 })
 
-ui({
-    "mrjones2014/smart-splits.nvim",
-    keys = conf.smartsplits_keys,
-    config = true,
-})
- 
--- TODO: Add actual yazi nvim plugin
-
 -- Defaults look quite nice (pretty sure I use catppuccin to modify it slightly too)
 ui({
     'lukas-reineke/indent-blankline.nvim',
@@ -234,16 +226,6 @@ ui({
     opts = {}
 })
 
-
-ui({
-    'pocco81/true-zen.nvim',
-    lazy = false,
-    opts = {
-        integrations = {
-            twilight = true,
-        }
-    }
-})
 
 ui({
     'folke/twilight.nvim',
@@ -269,4 +251,27 @@ ui({
     config = function()
         require('kitty-scrollback').setup()
     end,
+})
+
+ui({
+    'folke/trouble.nvim',
+    cmd = "Trouble",
+    keys = {
+        {
+            "<leader>xx",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+        {
+            "<leader>xt",
+            "<cmd>Trouble todo<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+    },
+    opts = {},
+})
+
+ui({
+    'sindrets/diffview.nvim',
+    opts = {},
 })
