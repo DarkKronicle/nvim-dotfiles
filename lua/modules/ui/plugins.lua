@@ -73,6 +73,11 @@ ui({
                 },
                 progress = {
                     enabled = false
+                },
+                signature = {
+                    auto_open = {
+                        enabled = false,
+                    }
                 }
             },
             -- you can enable a preset for easier configuration

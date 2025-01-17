@@ -17,6 +17,23 @@ completion({
     opts = {
         keymap = { preset = "super-tab" },
         snippets = { preset = 'luasnip' },
+        signature = {
+            enabled = true,
+        },
+        completion = {
+            documentation = {
+                auto_show = true,
+                auto_show_delay_ms = 500
+            },
+            menu = {
+                draw = {
+                    treesitter = { 'lsp' },
+                }
+            },
+            ghost_text = {
+                enabled = true
+            }
+        },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'yanky', 'latex', 'ripgrep'},
             providers = {

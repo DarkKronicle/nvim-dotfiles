@@ -31,6 +31,7 @@ function config.catppuccin()
             dap = true,
             dap_ui = true,
             diffview = true,
+            blink_cmp = true,
         },
         styles = colors.catppuccin_styles,
         highlight_overrides = {

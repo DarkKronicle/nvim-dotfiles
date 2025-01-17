@@ -33,46 +33,6 @@ lsp({
 
 })
 
-lsp({
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    build = ":MasonUpdate",
-    -- Handled by nix now
-    cond = false,
-    opts = {
-        install_root_dir = aelius.get_data_path() .. "/mason2",
-    }
-})
-
-lsp({
-    "williamboman/mason-lspconfig.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    cond = false,
-    dependencies = {
-        "williamboman/mason.nvim",
-        "neovim/nvim-lspconfig",
-    },
-    opts = {
-        automatic_installation = true,
-        handlers = {
-            function(name)
-                -- TODO: probably move this
-                -- Get the config, if it doesn't exist, don't set it up!
-                -- We want manual intervention here.
-                -- The "custom" config can just be `{}`
-                local config = require("modules.lsp.lsp.mason.lsp_servers")(name)
-                if config then
-                    require("lspconfig")[name].setup(config)
-                else
-                    vim.defer_fn(function ()
-                        aelius.warn("LSP " .. name .. " is not set up!")
-                    end, 200)
-                end
-            end,
-        },
-    },
-})
-
 -- TODO: set up keybinds and stuff for this. This will be in after/ftplugin/rust.lua
 lsp({
     "mrcjkb/rustaceanvim",
