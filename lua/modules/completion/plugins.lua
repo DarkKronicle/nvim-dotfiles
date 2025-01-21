@@ -19,13 +19,20 @@ completion({
         snippets = { preset = 'luasnip' },
         signature = {
             enabled = true,
+            window = {
+                winblend = 10,
+            },
         },
         completion = {
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 500
+                auto_show_delay_ms = 500,
+                window = {
+                    winblend = 10,
+                },
             },
             menu = {
+                winblend = 10,
                 draw = {
                     treesitter = { 'lsp' },
                 }

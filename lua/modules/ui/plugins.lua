@@ -280,3 +280,12 @@ ui({
     'sindrets/diffview.nvim',
     opts = {},
 })
+
+ui({
+    'nvim-treesitter/nvim-treesitter-context',
+    lazy = false,
+    opts = {
+        enable = true,
+        max_lines = 6,
+    },
+})

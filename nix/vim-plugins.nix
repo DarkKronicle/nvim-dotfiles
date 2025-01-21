@@ -77,4 +77,6 @@ with pkgs.vimPlugins; [
   gitlinker-nvim
   neogen
   diffview-nvim
+
+  nvim-treesitter-context
 ]
