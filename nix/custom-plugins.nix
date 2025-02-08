@@ -25,4 +25,5 @@ pkgs.lib.forEach (with pkgs.neovimPlugins; [
   undotree # undotree but in lua
 
   heirline-components-nvim # nice prebuilt components for heirline
+  nvim-fundo
 ]) noCheck

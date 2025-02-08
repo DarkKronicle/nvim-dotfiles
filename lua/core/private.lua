@@ -33,6 +33,7 @@ aelius.augroup("private", {
             "secrets.json",
             "secrets",
             "/mnt/tomb/*",
+            "/tmpfs/*",
             ".env",
         }
 

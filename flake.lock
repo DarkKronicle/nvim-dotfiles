@@ -450,6 +450,22 @@
         "type": "github"
       }
     },
+    "plugins-nvim-fundo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715880105,
+        "narHash": "sha256-+YOLS6YqxAp5hBCzLrqUJ1aM/KTnWsmAhw6zRpK3HWk=",
+        "owner": "kevinhwang91",
+        "repo": "nvim-fundo",
+        "rev": "ac9c9372c4bf677721e24f144ef29d3a05c2b589",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "nvim-fundo",
+        "type": "github"
+      }
+    },
     "plugins-scrollEOF-nvim": {
       "flake": false,
       "locked": {
@@ -532,6 +548,7 @@
         "plugins-neorg-extras": "plugins-neorg-extras",
         "plugins-neorg-interim-ls": "plugins-neorg-interim-ls",
         "plugins-neotest-dotnet": "plugins-neotest-dotnet",
+        "plugins-nvim-fundo": "plugins-nvim-fundo",
         "plugins-scrollEOF-nvim": "plugins-scrollEOF-nvim",
         "plugins-tiny-code-action-nvim": "plugins-tiny-code-action-nvim",
         "plugins-undotree": "plugins-undotree",

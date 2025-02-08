@@ -102,6 +102,19 @@ editor({
 })
 
 editor({
+    'kevinhwang91/nvim-fundo',
+    lazy = false,
+    dependencies = {
+        'kevinhwang91/promise-async'
+    },
+    config = function ()
+        require('fundo').setup({
+            archives_dir = vim.fn.expand("$HOME/.vim/undodir/fundo")
+        })
+    end
+})
+
+editor({
     'Aasim-A/scrollEOF.nvim',
     name = "scrollEOF-nvim",
     event = { 'CursorMoved', 'WinScrolled' },

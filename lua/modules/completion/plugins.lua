@@ -15,7 +15,15 @@ completion({
         { "L3MON4D3/LuaSnip" },
     },
     opts = {
-        keymap = { preset = "super-tab" },
+        keymap = { 
+            preset = "super-tab",
+            ["<c-g>"] = {
+                function()
+                    -- invoke manually, requires blink >v0.8.0
+                    require("blink-cmp").show({ providers = { "ripgrep" } })
+                end,
+            },
+        },
         snippets = { preset = 'luasnip' },
         signature = {
             enabled = true,
@@ -42,7 +50,7 @@ completion({
             }
         },
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'yanky', 'latex', 'ripgrep'},
+            default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'yanky', 'latex'},
             providers = {
                 emoji = {
                     name = "emoji",
@@ -62,7 +70,17 @@ completion({
                     module = "blink-ripgrep",
                     name = "Ripgrep",
                     score_offset = -1,
+                },
+                buffer = {
+                    opts = {
+                        get_bufnrs = function()
+                            return vim.tbl_filter(function(bufnr)
+                                return vim.bo[bufnr].buftype == ''
+                            end, vim.api.nvim_list_bufs())
+                        end
+                    }
                 }
+
             }
         }
     },

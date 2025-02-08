@@ -98,6 +98,10 @@
       url = "github:jiaoshijie/undotree";
       flake = false;
     };
+    "plugins-nvim-fundo" = {
+      url = "github:kevinhwang91/nvim-fundo";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs

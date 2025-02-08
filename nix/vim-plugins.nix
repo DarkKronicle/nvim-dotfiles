@@ -79,4 +79,6 @@ with pkgs.vimPlugins; [
   diffview-nvim
 
   nvim-treesitter-context
+
+  snacks-nvim
 ]
