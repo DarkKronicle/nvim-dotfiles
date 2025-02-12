@@ -25,7 +25,7 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    # neorg-overlay.inputs.nixpkgs.follows = "nixpkgs";
     # for if you wish to select a particular neovim version
     # neovim-flake = {
     #   url = "github:neovim/neovim/nightly?dir=contrib";
