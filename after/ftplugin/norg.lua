@@ -15,6 +15,6 @@ vim.api.nvim_buf_set_option(0, "breakindent", true)
 -- Also is it possible to have this in a way that it keeps the nice looking folds?
 require('ufo').detach()
 
-vim.defer_fn(function()
-    vim.cmd("Neorg render-latex enable")
-end, 2000)
+-- vim.defer_fn(function()
+--     vim.cmd("Neorg render-latex enable")
+-- end, 2000)

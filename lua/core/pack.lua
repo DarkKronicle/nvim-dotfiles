@@ -53,6 +53,12 @@ function pack:boot_strap()
             missing = not cat.isNixCats
         },
         auto_install = not cat.isNixCats,
+        rocks = { 
+            enabled = false 
+        },
+        pkg = {
+            sources = { "lazy", "packspec" }
+        }
     }
 
     self:load_modules_packages()

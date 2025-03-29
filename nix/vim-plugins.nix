@@ -55,7 +55,6 @@ with pkgs.vimPlugins; [
   neo-tree-nvim # tree!
   which-key-nvim # show me my bindings
 
-  image-nvim
   nabla-nvim
 
   no-neck-pain-nvim # center windows in specific situations

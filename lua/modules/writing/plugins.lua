@@ -7,7 +7,6 @@ writing({
     cmd = { "Neorg" },
     version = "v7.0.0",
     dependencies = {
-        "3rd/image.nvim",
         -- { "luarocks.nvim" },
         {
             "juniorsundar/neorg-extras",
@@ -39,53 +38,6 @@ writing({
     cmd = { 'NoNeckPain' },
 })
 
-writing({
-    'zk-org/zk-nvim',
-    keys = {
-        {
-            "<leader>zn",
-            "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>",
-            mode = 'n',
-            desc = 'Create new note and prompt for title',
-        },
-        {
-            "<leader>zo",
-            "<Cmd>ZkNotes { sort = { 'modified' } }<CR>",
-            mode = 'n',
-            desc = 'Open notes',
-        },
-        {
-            "<leader>zi",
-            "<Cmd>ZkInsertLink<CR>",
-            mode = 'n',
-            desc = 'Insert link',
-        },
-        {
-            "<leader>zi",
-            "<Cmd>'<'>ZkInsertLinkAtSelection<CR>",
-            mode = 'v',
-            desc = 'Insert link',
-        },
-        {
-            "<leader>zb",
-            "<Cmd>ZkBacklinks<CR>",
-            mode = 'n',
-            desc = 'Open backlinks',
-        },
-        {
-            "<leader>zl",
-            "<Cmd>ZkLinks<CR>",
-            mode = 'n',
-            desc = 'Open backlinks',
-        },
-    },
-    config = function()
-        require("zk").setup({
-            picker = "telescope"
-        })
-    end,
-})
-
 -- writing({
     -- 'jbyuki/nabla.nvim',
 -- })
@@ -93,25 +45,26 @@ writing({
 writing({
     '3rd/image.nvim',
     ft = { 'markdown', 'norg' },
-    opts = {
-        backend = 'kitty',
-        markdown = {
-            enabled = true,
-            clear_in_insert_mode = false,
-            download_remote_images = true,
-            only_render_image_at_cursor = false,
-            filetypes = { "markdown", "vimwiki" },
-        },
-        neorg = {
-            enabled = true,
-            clear_in_insert_mode = false,
-            download_remote_images = true,
-            only_render_image_at_cursor = false,
-            filetypes = { "norg" },
-        },
-    },
-    config = function(_, opts)
-        require("image").setup(opts)
-    end,
+    name = "image-nvim",
+    config = function () 
+        require("image").setup({
+            backend = 'kitty',
+            processor = "magick_rock",
+            markdown = {
+                enabled = true,
+                clear_in_insert_mode = false,
+                download_remote_images = true,
+                only_render_image_at_cursor = false,
+                filetypes = { "markdown", "vimwiki" },
+            },
+            neorg = {
+                enabled = true,
+                clear_in_insert_mode = false,
+                download_remote_images = true,
+                only_render_image_at_cursor = false,
+                filetypes = { "norg" },
+            },
+        })
+    end
 
 })

@@ -74,12 +74,12 @@ M.opts = {
         ["core.completion"] = {
             config = { engine = { module_name = "external.lsp-completion" } },
         },
-        ["core.latex.renderer"] = {
-            config = {
-                renderer = "core.integrations.image",
-                conceal = true,
-            }
-        },
+        -- ["core.latex.renderer"] = {
+        --     config = {
+        --         renderer = "core.integrations.image",
+        --         conceal = true,
+        --     }
+        -- },
         ["core.itero"] = {},
         ["core.export"] = {},
         ["core.export.markdown"] = {

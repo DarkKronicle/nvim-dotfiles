@@ -26,4 +26,5 @@ pkgs.lib.forEach (with pkgs.neovimPlugins; [
 
   heirline-components-nvim # nice prebuilt components for heirline
   nvim-fundo
+  image-nvim
 ]) noCheck

@@ -102,6 +102,10 @@
       url = "github:kevinhwang91/nvim-fundo";
       flake = false;
     };
+    "plugins-image-nvim" = {
+      url = "github:3rd/image.nvim";
+      flake = false;
+    };
   };
 
   # see :help nixCats.flake.outputs
@@ -124,23 +128,15 @@
       ];
     };
 
-    system_resolved = forEachSystem (system: let
-      # see :help nixCats.flake.outputs.overlays
-      standardPluginOverlay = utils.standardPluginOverlay;
-      dependencyOverlays = (import ./overlays inputs) ++ [
-        # This overlay grabs all the inputs named in the format
-        # `plugins-<pluginName>`
-        # Once we add this overlay to our nixpkgs, we are able to
-        # use `pkgs.neovimPlugins`, which is a set of our plugins.
-        (standardPluginOverlay inputs)
-        inputs.neorg-overlay.overlays.default
-        # add any flake overlays here.
-      ];
-      # these overlays will be wrapped with ${system}
-      # and we will call the same flake-utils function
-      # later on to access them.
-    in { inherit dependencyOverlays; });
-    inherit (system_resolved) dependencyOverlays;
+    dependencyOverlays = (import ./overlays inputs) ++ [
+      # This overlay grabs all the inputs named in the format
+      # `plugins-<pluginName>`
+      # Once we add this overlay to our nixpkgs, we are able to
+      # use `pkgs.neovimPlugins`, which is a set of our plugins.
+      (utils.standardPluginOverlay inputs)
+      inputs.neorg-overlay.overlays.default
+      # add any flake overlays here.
+    ];
 
     # see :help nixCats.flake.outputs.categories
     # and
@@ -185,6 +181,7 @@
           basedpyright
           beancount-language-server
           beancount
+          glibc
         ];
       };
 
@@ -213,6 +210,7 @@
       # variable available to nvim runtime
       sharedLibraries = {
         general = with pkgs; [
+            imagemagick
         ];
       };
 
