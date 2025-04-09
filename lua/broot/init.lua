@@ -4,7 +4,7 @@ local Float = require("core.float")
 --@type Config
 
 local Config = {
-    broot_conf_path = vim.fn.expand("~/.config/broot/conf.toml"),
+    broot_conf_path = vim.fn.expand("~/.config/broot/conf.hjson"),
     broot_vim_conf_path = vim.fn.expand(vim.fn.stdpath("data") .. "/broot.nvim/conf_nvim.hjson"),
     broot_vim_conf = {
         "verbs: [",
