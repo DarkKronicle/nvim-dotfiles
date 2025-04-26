@@ -182,6 +182,7 @@
           beancount-language-server
           beancount
           glibc
+          python3
         ];
       };
 
