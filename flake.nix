@@ -42,10 +42,6 @@
       url = "github:rainbowhxch/accelerated-jk.nvim";
       flake = false;
     };
-    "plugins-luasnip-snippets" = {
-      url = "github:mireq/luasnip-snippets";
-      flake = false;
-    };
     "plugins-mini-animate" = {
       url = "github:echasnovski/mini.animate";
       flake = false;
@@ -182,7 +178,6 @@
           beancount-language-server
           beancount
           glibc
-          python3
         ];
       };
 
@@ -240,10 +235,10 @@
       # in your lua config via
       # vim.g.python3_host_prog
       # or run from nvim terminal via :!<packagename>-python3
-      extraPython3Packages = {
+      # populates $LUA_PATH and $LUA_CPATH
+      python3.libraries = {
         test = (_:[]);
       };
-      # populates $LUA_PATH and $LUA_CPATH
       extraLuaPackages = {
         general = [ 
           (ps: [ ps.magick ]) 
@@ -273,6 +268,7 @@
           aliases = [ "vim" ];
           # caution: this option must be the same for all packages.
           # neovim-unwrapped = inputs.neovim-flake.packages.${pkgs.system}.neovim;
+          hosts.python3.enable = true;
         };
         # and a set of categories that you want
         # (and other information to pass to lua)

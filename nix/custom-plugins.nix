@@ -9,7 +9,6 @@ in
 pkgs.lib.forEach (with pkgs.neovimPlugins; [
   cutlass-nvim # cut operation. Could be done via registers, but is nicer
   accelerated-jk-nvim # move faster with j and k
-  luasnip-snippets # more snippets
   mini-animate # animate scrolling and some other things
   mini-surround
   mini-hipatterns # show me the colors!

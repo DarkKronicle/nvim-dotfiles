@@ -17,7 +17,7 @@ local disable_distribution_plugins = function()
     vim.g.loaded_netrwFileHandlers = 1
     vim.g.matchup_matchparen_enabled = 1
     vim.g.load_black = 1
-    vim.g.loaded_node_provider = 1
+    vim.g.loaded_node_provider = 0
 end
 
 
