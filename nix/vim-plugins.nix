@@ -80,4 +80,6 @@ with pkgs.vimPlugins; [
   nvim-treesitter-context
 
   snacks-nvim
+
+  typst-preview-nvim
 ]

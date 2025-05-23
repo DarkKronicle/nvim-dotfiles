@@ -33,4 +33,21 @@
     p.mermaid 
     p.kdl 
     p.lua
+    p.typst
+    p.matlab
+    p.dockerfile
+    p.css
+    p.diff
+    p.git_config
+    p.git_rebase
+    p.gitignore
+    p.gitcommit
+    p.go
+    p.gomod
+    p.gosum
+    p.hjson
+    p.just
+    p.mermaid
+    p.nginx
+    p.sql
   ] ++ custom-treesitter))]

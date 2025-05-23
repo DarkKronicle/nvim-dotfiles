@@ -178,6 +178,7 @@
           beancount-language-server
           beancount
           glibc
+          tinymist
         ];
       };
 

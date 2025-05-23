@@ -65,6 +65,12 @@ local servers = {
            'svls.yaml', 'svls.yaml', '*.qsf', '.git', '.svls.toml'
         ),
     },
+    tinymist = {
+        root_dir = function(fname)
+            return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+                or vim.fs.dirname(fname)
+        end,
+    };
 }
 
 local function get_config(name)
