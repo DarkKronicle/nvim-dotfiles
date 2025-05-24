@@ -82,4 +82,5 @@ with pkgs.vimPlugins; [
   snacks-nvim
 
   typst-preview-nvim
+  conform-nvim
 ]

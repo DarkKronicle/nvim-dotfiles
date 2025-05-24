@@ -179,6 +179,7 @@
           beancount
           glibc
           tinymist
+          typstyle
         ];
       };
 
