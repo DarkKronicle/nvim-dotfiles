@@ -50,4 +50,5 @@
     p.mermaid
     p.nginx
     p.sql
+    p.corn
   ] ++ custom-treesitter))]
