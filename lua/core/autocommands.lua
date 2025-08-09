@@ -14,9 +14,9 @@ aelius.augroup("bufferline", {
                 local buffers = get_bufs()
                 -- check how many buffers we have and set showtabline accordingly
                 if #buffers > 1 then
-                    vim.o.showtabline = 2 -- always
+                    vim.o.showtabline = 2          -- always
                 elseif vim.o.showtabline ~= 1 then -- don't reset the option if it's already at default value
-                    vim.o.showtabline = 1 -- only when #tabpages > 1
+                    vim.o.showtabline = 1          -- only when #tabpages > 1
                 end
             end)
         end,
@@ -26,7 +26,7 @@ aelius.augroup("bufferline", {
 aelius.augroup("util", {
     {
         -- Make directory if it doesn't exist
-        event ='BufWritePre',
+        event = 'BufWritePre',
         command = function(event)
             if event.match:match('^%w%w+://') then
                 return
@@ -54,7 +54,8 @@ aelius.augroup("util", {
             'tsplayground',
         },
         command = function(event)
-            vim.bo[event.buf].buflisted = false vim.keymap.set('n', 'q', '<cmd>close<CR>', { buffer = event.buf, silent = true })
+            vim.bo[event.buf].buflisted = false
+            vim.keymap.set('n', 'q', '<cmd>close<CR>', { buffer = event.buf, silent = true })
         end,
     },
     {
@@ -87,8 +88,8 @@ aelius.augroup("util", {
 -- jk moves based on visual, not exact
 aelius.augroup("writing", {
     {
-        event = {"BufEnter", "BufWinEnter"},
-        pattern = {"*.md", "*.norg", "*.tex"},
+        event = { "BufEnter", "BufWinEnter" },
+        pattern = { "*.md", "*.norg", "*.tex" },
         command = function()
             vim.keymap.set('n', 'j', 'gj', { buffer = true })
             vim.keymap.set('n', 'k', 'gk', { buffer = true })

@@ -1,54 +1,59 @@
 {
   pkgs,
-  custom-treesitter
+  custom-treesitter,
 }:
 # https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/parsing/tree-sitter/update.nix
 # This list has nothing to do with what you can do with :TSInstall. These are all packaged by the nix chads.
 [
-  (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ 
-    p.c 
-    p.cmake
-    p.c_sharp 
-    p.beancount 
-    p.java 
-    p.bash 
-    p.json 
-    p.json5
-    p.javascript
-    p.ini
-    p.html
-    p.latex 
-    p.bibtex 
-    p.python 
-    p.markdown 
-    p.ron 
-    p.rust 
-    p.toml 
-    p.nix 
-    p.vimdoc 
-    p.vim 
-    p.yaml 
-    p.verilog 
-    p.regex 
-    p.mermaid 
-    p.kdl 
-    p.lua
-    p.typst
-    p.matlab
-    p.dockerfile
-    p.css
-    p.diff
-    p.git_config
-    p.git_rebase
-    p.gitignore
-    p.gitcommit
-    p.go
-    p.gomod
-    p.gosum
-    p.hjson
-    p.just
-    p.mermaid
-    p.nginx
-    p.sql
-    p.corn
-  ] ++ custom-treesitter))]
+  (pkgs.vimPlugins.nvim-treesitter.withPlugins (
+    p:
+    [
+      p.c
+      p.cmake
+      p.c_sharp
+      p.beancount
+      p.java
+      p.bash
+      p.json
+      p.json5
+      p.javascript
+      p.ini
+      p.html
+      p.latex
+      p.bibtex
+      p.python
+      p.markdown
+      p.ron
+      p.rust
+      p.toml
+      p.nix
+      p.vimdoc
+      p.vim
+      p.yaml
+      p.systemverilog
+      p.regex
+      p.mermaid
+      p.kdl
+      p.lua
+      p.typst
+      p.matlab
+      p.dockerfile
+      p.css
+      p.diff
+      p.git_config
+      p.git_rebase
+      p.gitignore
+      p.gitcommit
+      p.go
+      p.gomod
+      p.gosum
+      p.hjson
+      p.just
+      p.mermaid
+      p.nginx
+      p.sql
+      p.corn
+    ]
+    ++ custom-treesitter
+  ))
+]

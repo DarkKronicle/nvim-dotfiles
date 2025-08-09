@@ -43,7 +43,7 @@ ui({
 ui({
     "rebelot/heirline.nvim",
     event = "BufEnter",
-    dependencies = { 
+    dependencies = {
         { "Zeioth/heirline-components.nvim", name = "heirline-components-nvim" },
         "lewis6991/gitsigns.nvim",
     },
@@ -57,7 +57,7 @@ ui({
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
-    config = function ()
+    config = function()
         -- https://github.com/rafi/vim-config/blob/master/lua/rafi/plugins/ui.lua
         require("notify").setup({
             background_colour = "#00000000"
@@ -82,10 +82,10 @@ ui({
             },
             -- you can enable a preset for easier configuration
             presets = {
-                bottom_search = true,     -- use a classic bottom cmdline for search
-                command_palette = true,   -- position the cmdline and popupmenu together
+                bottom_search = true,         -- use a classic bottom cmdline for search
+                command_palette = true,       -- position the cmdline and popupmenu together
                 long_message_to_split = true, -- long messages will be sent to a split
-                lsp_doc_border = false,   -- add a border to hover docs and signature help
+                lsp_doc_border = false,       -- add a border to hover docs and signature help
                 inc_rename = true,
             },
             routes = {
@@ -161,7 +161,7 @@ ui({
     -- TODO: Probably should disable this on large buffers
     "RRethy/vim-illuminate",
     event = 'VeryLazy',
-    config = function (_, opts)
+    config = function(_, opts)
         require('illuminate').configure(opts)
     end,
     opts = {
@@ -211,7 +211,7 @@ ui({
     -- TODO: what to do about this?
     "mvllow/modes.nvim",
     cond = false,
-    init = function ()
+    init = function()
         vim.o.cursorline = true
     end,
     opts = {

@@ -10,22 +10,22 @@ local function map_pair(key, prev, prev_opt, next, next_opt)
     map("n", next_key .. key, next, next_opt)
 end
 
-map_pair("a", 
+map_pair("a",
     "<cmd>tabprevious<cr>", { desc = "Previous tab" },
     "<cmd>tabnext<cr>", { desc = "Next tab" }
 )
 
-map_pair("b", 
+map_pair("b",
     "<cmd>bprevious<cr>", { desc = "Previous buffer" },
     "<cmd>bnext<cr>", { desc = "Next buffer" }
 )
 
-map_pair("t", 
+map_pair("t",
     "<cmd>tprevious<cr>", { desc = "Previous tag" },
     "<cmd>tnext<cr>", { desc = "Next tag" }
 )
 
-map_pair("d", 
+map_pair("d",
     vim.diagnostic.goto_prev, { desc = "Previous diagnostic" },
     vim.diagnostic.goto_next, { desc = "Next diagnostic" }
 )
@@ -42,10 +42,10 @@ map('v', '>', '>gv|', { desc = 'Indent left and re-select' })
 map('v', '<S-Tab>', '<gv', { desc = 'Indent right and re-select' })
 map('v', '<Tab>', '>gv|', { desc = 'Indent left and re-select' })
 
-map('n', '<esc>', function ()
+map('n', '<esc>', function()
     vim.cmd('nohl')
     require('notify').dismiss()
-end, { desc = 'Dismiss highlights and notifications' } )
+end, { desc = 'Dismiss highlights and notifications' })
 
 map({ 'n', 'v' }, '<leader>w', "<cmd>w<cr>")
 map({ 'n', 'v' }, '<leader>W', "<cmd>wa<cr>")
@@ -65,7 +65,7 @@ vim.cmd.cnoreabbrev('bD', 'bd')
 -- Break inserted text into smaller undo units when we insert some punctuation chars.
 local undo_ch = { ",", ".", "!", "?", ";", ":", "(" }
 for _, ch in ipairs(undo_ch) do
-  vim.keymap.set("i", ch, ch .. "<c-g>u")
+    vim.keymap.set("i", ch, ch .. "<c-g>u")
 end
 
 

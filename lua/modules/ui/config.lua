@@ -55,7 +55,6 @@ function config.heirline()
     })
 end
 
-
 function config.animate()
     local animate = require('mini.animate')
     -- http://www.lazyvim.org/extras/ui/mini-animate
@@ -73,13 +72,6 @@ function config.animate()
     animate.setup({
         cursor = {
             enable = false,
-            timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-            path = animate.gen_path.line({
-                predicate = function(destination)
-                    -- Destination is a tuple of Δx, Δy
-                    return destination[1] < -7 or 7 < destination[1]
-                end
-            }),
         },
         open = {
             enable = false,
@@ -95,6 +87,13 @@ function config.animate()
                         aelius.disable_animate_next = false
                         return false
                     end
+
+                    -- This fixes an issue with lsp_lines that breaks mini.animate
+                    vim.diagnostic.config({ virtual_lines = false });
+                    animate.execute_after("scroll", function()
+                        vim.diagnostic.config({ virtual_lines = true });
+                    end);
+
                     -- TODO: make this scrolloff dependent
                     -- return total_scroll > vim.opt.scrolloff and total_scroll > 3
                     return total_scroll > 8
